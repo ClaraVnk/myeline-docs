@@ -111,10 +111,12 @@ sauvegarde apparaît dans `data/backups/<date>/`).
 
 ## 10. Configurer un test RAG
 
-1. Dans votre interface utilisateur (`/user/library`), uploader un
-   PDF test (ex. la documentation Myeline elle-même !)
+1. Aller sur `/org/<slug>/workspace` et uploader un PDF test (ex. la
+   documentation Myeline elle-même !) — l'upload de fichiers se fait
+   au niveau organisation. Côté personnel, la bibliothèque s'alimente
+   via les connecteurs cloud (`/user/cloud`).
 2. Attendre ~30 s pour l'indexation (dépend de la taille)
-3. `/recherche` → poser une question sur le contenu
+3. `/user` (recherche) → poser une question sur le contenu
 4. Vérifier la réponse + les sources citées
 
 Si l'embedding bloque (timeout Ollama), vérifier que le service
