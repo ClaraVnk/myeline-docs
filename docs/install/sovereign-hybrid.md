@@ -154,8 +154,8 @@ C'est **le moment-clé** du déploiement souverain-hybride. Vous devez
 ### 3.5 Authentication
 
 Le wizard saute la section "connexion sociale" en souverain-hybride
-(voir [pourquoi](../admin/oidc-sso.md#pourquoi-pas-de-social-login)).
-Pour l'authentification entreprise, configurez **OIDC SSO** après
+(voir [SSO entreprise (OIDC)](../admin/oidc-sso.md)). Pour
+l'authentification entreprise, configurez **OIDC SSO** après
 l'install via `/org/<slug>/oidc`.
 
 ### 3.6 Reste
@@ -210,5 +210,5 @@ curl https://myeline.acme.local/license-info
 
 - [Première connexion admin](first-login.md)
 - [Configurer OIDC entreprise](../admin/oidc-sso.md)
-- [Activer le bon LLM par organisation](../admin/organizations.md#choix-du-provider-ia)
+- [Activer le bon LLM par organisation](../admin/organizations.md)
 - [Sauvegarde off-host](../operations/backup-restore.md)
