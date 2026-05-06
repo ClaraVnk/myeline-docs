@@ -1,0 +1,16 @@
+# Build dependencies for the Myeline docs site (mkdocs-material).
+# Pinned to known-good versions; bump deliberately when needed.
+
+mkdocs>=1.6.0,<2.0.0
+mkdocs-material>=9.5.0,<10.0.0
+
+# Material extensions used in mkdocs.yml — pulled automatically by
+# mkdocs-material but listed here for clarity and reproducibility.
+pymdown-extensions>=10.7,<11.0.0
+mkdocs-material-extensions>=1.3,<2.0.0
+
+# Bilingual FR (default) / EN site via the static-i18n plugin. Each
+# Markdown page can have a sibling <name>.en.md for the English
+# translation; the plugin auto-builds /fr/... and /en/... trees with
+# the right cross-links.
+mkdocs-static-i18n>=1.2.0,<2.0.0

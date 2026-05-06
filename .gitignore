@@ -1,0 +1,25 @@
+# MkDocs build output
+site/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+*.egg-info/
+
+# Editor / OS
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# direnv
+.envrc
+.direnv/
+
+# Local env
+.env
+.env.local

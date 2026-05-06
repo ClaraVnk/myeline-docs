@@ -1,0 +1,192 @@
+site_name: Myeline — Documentation
+site_url: https://wiki.myeline.io
+site_description: Plateforme RAG self-hosted, FR / EU-hosted. Documentation officielle pour les éditions Souverain et Souverain-hybride.
+site_author: Myeline
+copyright: Copyright &copy; 2026 Myeline
+
+repo_url: https://github.com/ClaraVnk/myeline-docs
+repo_name: ClaraVnk/myeline-docs
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  language: fr
+  logo: assets/logo.png
+  favicon: assets/favicon.png
+  font:
+    text: Inter
+    code: JetBrains Mono
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: Mode sombre
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: Mode clair
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+    - navigation.tracking
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+    - content.action.edit
+    - toc.follow
+  icon:
+    repo: fontawesome/brands/github
+
+extra:
+  social:
+    - icon: fontawesome/solid/globe
+      link: https://myeline.io
+      name: Site officiel
+    - icon: fontawesome/solid/envelope
+      link: mailto:hello@myeline.io
+      name: Contact
+  generator: false
+
+markdown_extensions:
+  # Code blocks
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  # Admonitions
+  - admonition
+  - pymdownx.details
+  # Misc
+  - attr_list
+  - md_in_html
+  - footnotes
+  - tables
+  - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.keys
+  # Heading anchors
+  - toc:
+      permalink: true
+      permalink_title: Lien vers cette section
+
+plugins:
+  - search:
+      lang:
+        - fr
+        - en
+  - tags
+  # Bilingual FR (default) / EN. Each <page>.md is in French; the
+  # English version lives in <page>.en.md. The plugin builds /fr/
+  # and /en/ trees and adds a language switcher in the header.
+  - i18n:
+      docs_structure: suffix
+      languages:
+        - locale: fr
+          default: true
+          name: Français
+          build: true
+        - locale: en
+          name: English
+          build: true
+          nav_translations:
+            "Accueil": "Home"
+            "Choisir son édition": "Choose your edition"
+            "Souverain (air-gap)": "Sovereign (air-gap)"
+            "Souverain-hybride (BYOK)": "Sovereign-hybrid (BYOK)"
+            "Installation": "Installation"
+            "Pré-requis serveur": "Server prerequisites"
+            "Installation souveraine": "Sovereign installation"
+            "Installation souverain-hybride": "Sovereign-hybrid installation"
+            "Première connexion admin": "First admin login"
+            "Opérations": "Operations"
+            "Sauvegarde et restauration": "Backup and restore"
+            "Mise à jour": "Upgrade"
+            "Supervision": "Monitoring"
+            "Renouvellement de licence": "License renewal"
+            "Administration": "Administration"
+            "Organisations et utilisateurs": "Organisations and users"
+            "SSO entreprise (OIDC)": "Enterprise SSO (OIDC)"
+            "Quotas et plans": "Quotas and plans"
+            "Journal d'audit": "Audit log"
+            "Connecteurs cloud": "Cloud connectors"
+            "Utilisation": "Usage"
+            "Bibliothèque et upload": "Library and uploads"
+            "Recherche RAG": "RAG search"
+            "Conversations multi-tours": "Multi-turn conversations"
+            "Alertes et veille": "Alerts and watch"
+            "Conformité": "Compliance"
+            "RGPD": "GDPR"
+            "Localisation des données": "Data residency"
+            "Cartographie ISO 27001": "ISO 27001 mapping"
+            "Dépannage": "Troubleshooting"
+            "Erreurs de licence": "License errors"
+            "Problèmes Ollama": "Ollama issues"
+            "Échecs de synchronisation": "Sync failures"
+
+nav:
+  - Accueil: index.md
+  - Choisir son édition:
+      - editions/index.md
+      - Souverain (air-gap): editions/sovereign.md
+      - Souverain-hybride (BYOK): editions/sovereign-hybrid.md
+  - Installation:
+      - install/index.md
+      - Pré-requis serveur: install/prerequisites.md
+      - Installation souveraine: install/sovereign.md
+      - Installation souverain-hybride: install/sovereign-hybrid.md
+      - Première connexion admin: install/first-login.md
+  - Opérations:
+      - operations/index.md
+      - Sauvegarde et restauration: operations/backup-restore.md
+      - Mise à jour: operations/upgrade.md
+      - Supervision: operations/monitoring.md
+      - Renouvellement de licence: operations/license-renewal.md
+  - Administration:
+      - admin/index.md
+      - Organisations et utilisateurs: admin/organizations.md
+      - SSO entreprise (OIDC): admin/oidc-sso.md
+      - Quotas et plans: admin/quotas.md
+      - Journal d'audit: admin/audit-log.md
+      - Connecteurs cloud: admin/cloud-connectors.md
+  - Utilisation:
+      - usage/index.md
+      - Bibliothèque et upload: usage/upload-documents.md
+      - Recherche RAG: usage/rag-search.md
+      - Conversations multi-tours: usage/conversations.md
+      - Alertes et veille: usage/watch-alerts.md
+  - Conformité:
+      - compliance/index.md
+      - RGPD: compliance/gdpr.md
+      - Localisation des données: compliance/data-residency.md
+      - Cartographie ISO 27001: compliance/iso-27001-mapping.md
+  - Dépannage:
+      - troubleshooting/index.md
+      - Erreurs de licence: troubleshooting/license-errors.md
+      - Problèmes Ollama: troubleshooting/ollama-issues.md
+      - Échecs de synchronisation: troubleshooting/sync-failures.md
+  - FAQ: faq.md
