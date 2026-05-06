@@ -3,9 +3,9 @@
 This section covers usage **on the end-user side** — features
 exposed via the web interface.
 
-- [Library and uploads](upload-documents.md) — how the personal
-  library is fed (cloud + scrapers) vs direct upload at org level,
-  supported formats, indexing.
+- [Library](upload-documents.md) — how personal and org libraries
+  are fed via cloud connectors and scrapers (no manual upload),
+  indexed formats, pipeline.
 - [RAG search](rag-search.md) — ask a question, refine, cite the
   sources, strict mode.
 - [Multi-turn conversations](conversations.md) — persistent

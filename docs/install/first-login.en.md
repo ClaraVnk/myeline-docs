@@ -107,13 +107,17 @@ in `data/backups/<date>/`).
 
 ## 10. Run a test RAG query
 
-1. Go to `/org/<slug>/workspace` and upload a test PDF (e.g. the
-   Myeline documentation itself!) — file uploads happen at org
-   level. On the personal side, the library is fed through cloud
-   connectors (`/user/cloud`).
-2. Wait ~30 s for indexing (depends on size)
-3. `/user` (search) → ask a question about the content
-4. Check the answer + cited sources
+Myeline has no manual upload — the library is fed via cloud
+connectors (`/user/cloud`) or RSS / web scrapers
+(`/user/scrapers`). For a first test:
+
+1. Connect a drive that contains a few PDFs (internal S3 / WebDAV
+   in sovereign; Google Drive / OneDrive / Dropbox in
+   sovereign-hybrid with your OAuth apps).
+2. Trigger a manual sync from `/user/cloud` ("Sync").
+3. Wait ~30-90 s for indexing (depends on size).
+4. `/user` (search) → ask a question about the content.
+5. Check the answer + cited sources.
 
 If embedding hangs (Ollama timeout), check that Ollama is up:
 `podman-compose logs ollama`.

@@ -111,13 +111,17 @@ sauvegarde apparaît dans `data/backups/<date>/`).
 
 ## 10. Configurer un test RAG
 
-1. Aller sur `/org/<slug>/workspace` et uploader un PDF test (ex. la
-   documentation Myeline elle-même !) — l'upload de fichiers se fait
-   au niveau organisation. Côté personnel, la bibliothèque s'alimente
-   via les connecteurs cloud (`/user/cloud`).
-2. Attendre ~30 s pour l'indexation (dépend de la taille)
-3. `/user` (recherche) → poser une question sur le contenu
-4. Vérifier la réponse + les sources citées
+Myeline n'a pas d'upload manuel — la bibliothèque s'alimente via
+les connecteurs cloud (`/user/cloud`) ou les scrapers RSS / web
+(`/user/scrapers`). Pour un premier test :
+
+1. Connecter un drive contenant quelques PDF (S3 / WebDAV interne
+   en souverain ; Google Drive / OneDrive / Dropbox en
+   souverain-hybride avec vos OAuth apps).
+2. Lancer une sync manuelle depuis `/user/cloud` (« Synchroniser »).
+3. Attendre ~30-90 s pour l'indexation (dépend de la taille).
+4. `/user` (recherche) → poser une question sur le contenu.
+5. Vérifier la réponse + les sources citées.
 
 Si l'embedding bloque (timeout Ollama), vérifier que le service
 Ollama est UP : `podman-compose logs ollama`.

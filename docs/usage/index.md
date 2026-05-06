@@ -3,9 +3,9 @@
 Cette section couvre l'usage **côté utilisateur final** — les
 fonctionnalités exposées via l'interface web.
 
-- [Bibliothèque et upload](upload-documents.md) — alimentation de la
-  bibliothèque perso (cloud + scrapers) vs upload direct côté
-  organisation, formats supportés, indexation.
+- [Bibliothèque](upload-documents.md) — alimentation perso et org
+  via les connecteurs cloud et les scrapers (pas d'upload manuel),
+  formats indexés, pipeline.
 - [Recherche RAG](rag-search.md) — poser une question, raffiner, citer
   les sources, mode strict.
 - [Conversations multi-tours](conversations.md) — fil de discussion

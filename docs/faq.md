@@ -85,14 +85,18 @@ L'OCR sur PDF scannés est désactivé par défaut — activable via
 `RAG_OCR_ENABLED=true` (souverain-hybride uniquement, dépendance
 Tesseract).
 
-### Y a-t-il un upload manuel pour les utilisateurs perso ?
+### Y a-t-il un upload manuel de fichier ?
 
-**Non**. La bibliothèque personnelle se remplit automatiquement via
-les connecteurs cloud (Drive, OneDrive, Dropbox, S3, WebDAV…) ou
-les scrapers RSS/web.
+**Non, pas du tout** — ni côté personnel, ni côté organisation. La
+bibliothèque (perso ou partagée) se remplit exclusivement via :
 
-L'upload direct de fichier est réservé aux **organisations**
-(`/org/<slug>/workspace`).
+- **Connecteurs cloud** : Google Drive, OneDrive, Dropbox, kDrive,
+  Zotero, S3 / S3-compatible, WebDAV
+- **Scrapers RSS / web**
+
+C'est un choix de design (source unique de vérité chez le client,
+conformité, simplicité d'ingestion) — voir
+[Bibliothèque § Pourquoi pas d'upload manuel ?](usage/upload-documents.md#pourquoi-pas-dupload-manuel).
 
 ### Combien d'utilisateurs simultanés ?
 

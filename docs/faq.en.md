@@ -81,14 +81,18 @@ PDF, DOCX, ODT, TXT, MD, HTML, CSV. See
 OCR on scanned PDFs is disabled by default — enable via
 `RAG_OCR_ENABLED=true` (sovereign-hybrid only, Tesseract dependency).
 
-### Is there a manual upload for personal users?
+### Is there a manual file upload?
 
-**No**. The personal library is filled automatically via cloud
-connectors (Drive, OneDrive, Dropbox, S3, WebDAV…) or RSS/web
-scrapers.
+**No, not at all** — neither personal nor organisation side. The
+library (personal or shared) is filled exclusively via:
 
-Direct file upload is reserved for **organisations**
-(`/org/<slug>/workspace`).
+- **Cloud connectors**: Google Drive, OneDrive, Dropbox, kDrive,
+  Zotero, S3 / S3-compatible, WebDAV
+- **RSS / web scrapers**
+
+This is a design choice (single source of truth on the customer
+side, compliance, simple ingestion path) — see
+[Library § Why no manual upload?](usage/upload-documents.md#why-no-manual-upload).
 
 ### How many concurrent users?
 

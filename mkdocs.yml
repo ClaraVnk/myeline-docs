@@ -135,7 +135,7 @@ plugins:
             "Journal d'audit": "Audit log"
             "Connecteurs cloud": "Cloud connectors"
             "Utilisation": "Usage"
-            "Bibliothèque et upload": "Library and uploads"
+            "Bibliothèque": "Library"
             "Recherche RAG": "RAG search"
             "Conversations multi-tours": "Multi-turn conversations"
             "Alertes et veille": "Alerts and watch"
@@ -175,7 +175,7 @@ nav:
       - Connecteurs cloud: admin/cloud-connectors.md
   - Utilisation:
       - usage/index.md
-      - Bibliothèque et upload: usage/upload-documents.md
+      - Bibliothèque: usage/upload-documents.md
       - Recherche RAG: usage/rag-search.md
       - Conversations multi-tours: usage/conversations.md
       - Alertes et veille: usage/watch-alerts.md
