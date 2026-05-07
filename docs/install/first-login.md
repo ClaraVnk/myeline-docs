@@ -131,8 +131,6 @@ Ollama est UP : `podman-compose logs ollama`.
 L'installeur peut avoir laissé certains champs vides (skip). Repassez
 sur `.env` plus tard pour activer :
 
-- **reCAPTCHA** (classic uniquement) si vous voulez la protection
-  anti-bot sur l'inscription publique
 - **Pangolin tunnel** si votre serveur est derrière NAT
 - **Backup remote rclone** si vous ne l'avez pas configuré au démarrage
 

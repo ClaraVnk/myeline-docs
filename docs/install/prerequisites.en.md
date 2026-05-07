@@ -12,10 +12,11 @@ Recommended sizing to run Myeline with an interactive experience
 
 | Profile | vCPU | RAM | Disk | GPU | Notes |
 |---|---|---|---|---|---|
-| **Demo / 1 user** | 8 | 16 GB | 50 GB SSD | – | CPU embedding + Mistral cloud |
+| **Demo / 1 user** | 8 | 16 GB | 50 GB SSD | – | Local CPU embedding |
 | **Sovereign ≤ 20 users** | 16 | 32 GB | 200 GB NVMe | – | Mistral-Nemo CPU = 15-40 s/query |
 | **Sovereign ≤ 200 users** | 24 | 64 GB | 500 GB NVMe | RTX 4090 24 GB or L40S | GPU **strongly recommended** |
 | **Sovereign large / Llama 70B** | 32 | 128 GB | 1 TB NVMe | 2× L40S 48 GB | Llama 3.1 70B Q4 or Mixtral 8×7B |
+| **Sovereign-hybrid ≤ 100 users** | 8 | 16 GB | 100 GB SSD | – | Synthesis offloaded to BYOK API, embedding stays local |
 
 ## Detailed consumption
 
@@ -26,7 +27,7 @@ Recommended sizing to run Myeline with an interactive experience
 | Web + worker (idle) | 1-2 cores |
 | **Embedding (bge-m3 CPU)** | **2-4 cores at 100 % for 0.5-2 s per query** |
 | ChromaDB HNSW search | 1-2 cores for ~100 ms |
-| Mistral cloud synthesis | 0 (network-bound) |
+| External API synthesis (sovereign-hybrid) | 0 (network-bound) |
 | **Ollama CPU LLM synthesis** | **4-8 cores at 100 % for 5-30 s** |
 | MariaDB | 1 core (2+ at peak) |
 | Cron (most jobs < 30 s) | bursts only |
@@ -66,14 +67,15 @@ improves 5-20× depending on the card.
 | Logs | ~10 MB / day | Rotation via Podman / journald |
 
 NVMe vs SATA SSD: better p99 for ChromaDB (HNSW seeks) and MariaDB.
-SATA SSD suffices for small/medium deployments.
 
 ### Network
 
-- **Outbound** to Mistral / Brevo / GHCR: ~10 Mbps sustained, more
-  during image pulls
-- **Inbound**: 100 Mbps comfortable up to medium tier
-- Latency to Mistral (Paris/Frankfurt): aim for < 50 ms
+- **Outbound** (sovereign-hybrid only) — AI provider + Brevo + GHCR:
+  ~10 Mbps sustained, more during image pulls.
+- **Inbound**: 100 Mbps comfortable for a few dozen concurrent users.
+- Latency to AI provider (Mistral Paris/Frankfurt, Anthropic /
+  OpenAI / Gemini US): aim for < 100 ms.
+- In pure sovereign: **no outbound traffic** (air-gap).
 
 ## OS and runtime
 

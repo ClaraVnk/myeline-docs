@@ -84,7 +84,7 @@ See the detailed walkthrough:
 - You pay the **AI providers directly** for the ones you enable
   (Mistral La Plateforme, Anthropic Console, OpenAI, Google AI Studio)
 - No hidden margin on our side — you see your AI costs directly
-- Support: 24 business h response, critical fixes within 72 h
+- Support included — detailed terms in the licence contract
 
 ## Getting started
 

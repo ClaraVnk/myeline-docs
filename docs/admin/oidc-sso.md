@@ -51,6 +51,6 @@ doivent être mappés sur `admin`.
 ## Forcer le SSO
 
 Une fois l'OIDC validé, vous pouvez **désactiver la connexion
-classique** (email + mot de passe) pour les membres de l'organisation
-— ils seront forcés vers l'IdP. Le owner conserve un fallback
-mot de passe pour ne pas perdre l'accès en cas de panne IdP.
+par email + mot de passe** pour les membres de l'organisation —
+ils seront forcés vers l'IdP. Le owner conserve un fallback mot de
+passe pour ne pas perdre l'accès en cas de panne IdP.

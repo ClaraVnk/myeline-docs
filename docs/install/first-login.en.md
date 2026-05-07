@@ -127,8 +127,6 @@ If embedding hangs (Ollama timeout), check that Ollama is up:
 The installer may have left some fields blank (skip). Revisit `.env`
 later to enable:
 
-- **reCAPTCHA** (classic only) if you want anti-bot protection on
-  public registration
 - **Pangolin tunnel** if your server is behind NAT
 - **rclone backup remote** if you didn't configure it at install time
 

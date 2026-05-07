@@ -142,8 +142,8 @@ A public API (REST + OpenAPI) is on the roadmap for Q4 2026.
 
 ### What's the SLA?
 
-24 business hours response standard, 72 h for critical fixes
-(sovereign and sovereign-hybrid). Details in the support contract.
+The SLA and detailed support conditions are specified in the
+licence contract signed with your organisation.
 
 ### Where do I ask a question?
 

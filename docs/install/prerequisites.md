@@ -13,13 +13,11 @@ interactive (réponse RAG sous 5 s perçus).
 
 | Profil | vCPU | RAM | Disque | GPU | Notes |
 |---|---|---|---|---|---|
-| **Démo / 1 utilisateur** | 8 | 16 GB | 50 GB SSD | – | Embedding CPU + Mistral cloud |
-| **SaaS small (≤ 200 actifs)** | 8 | 16 GB | 100 GB SSD | – | Quotas plan limitent la concurrence |
-| **SaaS medium (≤ 2 000 actifs)** | 16 | 32 GB | 300 GB SSD | – | Tune gunicorn 16 workers |
-| **SaaS large (≤ 10 000 actifs)** | 32 | 64 GB | 1 TB NVMe | – | + MariaDB read-replica + Redis sentinel |
+| **Démo / 1 utilisateur** | 8 | 16 GB | 50 GB SSD | – | Embedding CPU local |
 | **Souverain ≤ 20 utilisateurs** | 16 | 32 GB | 200 GB NVMe | – | Mistral-Nemo CPU = 15-40 s/requête |
 | **Souverain ≤ 200 utilisateurs** | 24 | 64 GB | 500 GB NVMe | RTX 4090 24 GB ou L40S | GPU **fortement recommandé** |
 | **Souverain large / Llama 70B** | 32 | 128 GB | 1 TB NVMe | 2× L40S 48 GB | Llama 3.1 70B Q4 ou Mixtral 8×7B |
+| **Souverain-hybride ≤ 100 utilisateurs** | 8 | 16 GB | 100 GB SSD | – | Synthèse déportée API BYOK, embedding local |
 
 ## Détail des consommations
 
@@ -30,7 +28,7 @@ interactive (réponse RAG sous 5 s perçus).
 | Web + worker (idle) | 1-2 cœurs |
 | **Embedding (bge-m3 CPU)** | **2-4 cœurs à 100 % pendant 0,5-2 s par requête** |
 | ChromaDB HNSW search | 1-2 cœurs pendant ~100 ms |
-| Synthèse Mistral cloud | 0 (réseau-bound) |
+| Synthèse API externe (souverain-hybride) | 0 (réseau-bound) |
 | **Synthèse LLM Ollama CPU** | **4-8 cœurs à 100 % pendant 5-30 s** |
 | MariaDB | 1 cœur (2+ en pic) |
 | Cron (la plupart < 30 s) | bursts only |
@@ -43,7 +41,7 @@ chaîne).
 1-2 requêtes simultanées actives, au-delà ça queue. Pour 4+
 utilisateurs simultanés actifs, prévoyez 16+ cœurs.
 
-### Mémoire (idle, profil SaaS)
+### Mémoire (idle, sans LLM local)
 
 | Composant | RAM |
 |---|---|
@@ -56,7 +54,7 @@ utilisateurs simultanés actifs, prévoyez 16+ cœurs.
 | ChromaDB hot index (HNSW) | 200-800 MB |
 | **Total idle** | **~4 GB** |
 | Headroom peak / pulls / backups | +50 % |
-| **Recommandé minimum SaaS** | **8 GB** |
+| **Recommandé minimum** | **8 GB** |
 
 ### Mémoire (souverain — LLM local)
 
@@ -86,32 +84,30 @@ mémoire global, mais la latence s'améliore de 5-20× selon la carte.
 | Logs | ~10 MB / jour | Rotation par Docker / journald |
 
 NVMe vs SSD SATA : meilleur p99 pour ChromaDB (HNSW seeks) et MariaDB.
-SATA SSD suffit pour SaaS small / medium.
 
 ### Réseau
 
-- **Outbound** Brevo / Mistral / Stripe / GHCR : ~10 Mbps soutenu, plus
-  pendant les image pulls
-- **Inbound** : 100 Mbps confortable jusqu'au tier medium
-- Latence vers Mistral (Paris/Frankfurt) : viser < 50 ms
+- **Outbound** (souverain-hybride uniquement) — provider IA + Brevo
+  + GHCR : ~10 Mbps soutenu, plus pendant les image pulls.
+- **Inbound** : 100 Mbps confortable pour quelques dizaines
+  d'utilisateurs simultanés.
+- Latence vers le provider IA (Mistral Paris/Frankfurt, Anthropic /
+  OpenAI / Gemini US) : viser < 100 ms.
+- En souverain pur : **aucun trafic sortant** (air-gap).
 
-## Référence VPS / hardware
+## Référence hardware
 
-Tarifs OVH 2026 TTC tout compris :
-
-| Tier | OVH offer | Spec | TTC/mois |
+| Profil | Hardware type | Spec | Ordre de prix |
 |---|---|---|---|
-| Démo / SaaS small | **VPS-3** ⭐ | 8 vCores / 24 GB / 200 GB NVMe | **20,39 €** |
-| SaaS medium | VPS-4 | 12 vCores / 48 GB / 300 GB NVMe | 37,73 € |
-| SaaS large | VPS-5 / VPS-6 | 16-24 vCores / 64-96 GB | 56,09-74,45 € |
-| Souverain CPU only | Hetzner AX42 | Ryzen 7 / 64 GB / 1 TB NVMe | ~50 € |
-| Souverain ≤ 200 users + GPU | Bare-metal Xeon + RTX 4090 24 GB | 64 GB / 1 TB NVMe + GPU | 250-400 € |
-| Souverain large / 70B | Bare-metal + 2× L40S 48 GB | 64 GB / 1 TB NVMe + 2 GPU | 800-1500 € |
+| Démo / Souverain ≤ 20 users (CPU only) | VPS ou bare-metal | 8-16 vCores / 32 GB / 200 GB NVMe | 20-50 €/mois |
+| Souverain ≤ 200 users + GPU | Bare-metal | Xeon + RTX 4090 24 GB / 64 GB / 1 TB NVMe | 250-400 €/mois |
+| Souverain large / Llama 70B | Bare-metal | 2× L40S 48 GB / 128 GB / 1 TB NVMe | 800-1500 €/mois |
+| Souverain-hybride ≤ 100 users | VPS | 8 vCores / 16 GB / 100 GB NVMe | 20-40 €/mois |
 
 !!! tip "Pratique"
-    **VPS-3 à 20,39 €/mois TTC** est le plancher pour une install qui
-    "tient debout" en prod (cloud SaaS ou démo souverain). Les
-    VPS-1 / VPS-2 (4-6 cœurs) saturent dès une requête concurrente.
+    En souverain pur, le coût hardware est dominé par le GPU (si
+    requis). En souverain-hybride, l'embedding tient sur un petit
+    VPS — la facture LLM passe directement chez votre provider IA.
 
 ## OS et runtime
 

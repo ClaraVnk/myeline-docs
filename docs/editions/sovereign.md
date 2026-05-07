@@ -52,7 +52,7 @@ Voir [Pré-requis serveur](../install/prerequisites.md). En résumé :
   automatiquement** (multi-turn, conversations, alertes, query
   history…) — vu que la licence couvre l'opérateur, il n'y a pas de
   notion de "plan utilisateur" interne
-- Support inclus : 24 h ouvrées (réponse), correctifs critiques sous 72 h
+- Support inclus — conditions détaillées dans le contrat de licence
 
 ## Limitations connues à connaître
 

@@ -148,8 +148,8 @@ Une API publique (REST + OpenAPI) est sur la roadmap pour Q4 2026.
 
 ### Quel est le SLA ?
 
-24 h ouvrées en réponse standard, 72 h pour les correctifs critiques
-(souverain et souverain-hybride). Détail dans le contrat de support.
+Le SLA et les conditions détaillées de support sont précisés dans
+le contrat de licence signé avec votre organisation.
 
 ### Où poser une question ?
 

@@ -87,7 +87,7 @@ Voir le walkthrough détaillé :
 - Vous payez **directement les providers IA** que vous activez
   (Mistral La Plateforme, Anthropic Console, OpenAI, Google AI Studio)
 - Pas de marge cachée chez nous — vous voyez vos coûts IA en direct
-- Support : 24 h ouvrées, correctifs critiques sous 72 h
+- Support inclus — conditions détaillées dans le contrat de licence
 
 ## Démarrer
 

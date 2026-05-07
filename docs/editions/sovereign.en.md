@@ -51,8 +51,7 @@ See [Server prerequisites](../install/prerequisites.md). Summary:
   automatically** (multi-turn, conversations, alerts, query
   history…) — since the licence covers the operator, there's no
   notion of an internal "user plan"
-- Support included: 24 business h response SLA, critical fixes
-  within 72 h
+- Support included — detailed terms in the licence contract
 
 ## Known limitations to be aware of
 

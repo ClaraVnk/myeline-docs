@@ -74,13 +74,8 @@ livrons clé en main aux organisations : **Souverain** (air-gap) et
 
 ## Support
 
-Toutes les éditions incluent du support email. Selon votre licence,
-les SLA varient :
-
-| Édition          | Canal       | SLA réponse  |
-|------------------|-------------|--------------|
-| Classic          | hello@…     | 48 h ouvrées |
-| Souverain        | hello@…     | 24 h ouvrées |
-| Souverain-hybride| hello@…     | 24 h ouvrées |
+Les deux éditions on-prem incluent du support email. Les conditions
+détaillées (SLA, périmètre, escalade) sont précisées dans le contrat
+de licence signé avec votre organisation.
 
 Contact : [hello@myeline.io](mailto:hello@myeline.io)

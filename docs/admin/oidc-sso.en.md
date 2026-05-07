@@ -50,7 +50,6 @@ should be mapped to `admin`.
 
 ## Force SSO
 
-Once OIDC is validated, you can **disable classic login** (email +
-password) for org members — they will be forced to the IdP. The
-owner keeps a password fallback so access is preserved if the IdP
-goes down.
+Once OIDC is validated, you can **disable email + password login**
+for org members — they will be forced to the IdP. The owner keeps
+a password fallback so access is preserved if the IdP goes down.

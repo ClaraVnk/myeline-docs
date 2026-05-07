@@ -74,11 +74,10 @@ The script greets you and checks the system:
 ```
 ── Deployment mode
 
-  1) Classic installation
   2) Sovereign installation         ← your choice
   3) Sovereign-hybrid installation
 
-    Your choice [1/2/3]: 2
+    Your choice [2/3]: 2
 [✓] Mode: sovereign
 ```
 

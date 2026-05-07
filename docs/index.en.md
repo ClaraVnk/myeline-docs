@@ -72,13 +72,8 @@ turnkey to organisations: **Sovereign** (air-gap) and
 
 ## Support
 
-All editions include email support. Depending on your license, the
-SLAs vary:
-
-| Edition          | Channel     | Response SLA  |
-|------------------|-------------|---------------|
-| Classic          | hello@…     | 48 business h |
-| Sovereign        | hello@…     | 24 business h |
-| Sovereign-hybrid | hello@…     | 24 business h |
+Both on-prem editions include email support. Detailed conditions
+(SLA, scope, escalation) are specified in the licence contract
+signed with your organisation.
 
 Contact: [hello@myeline.io](mailto:hello@myeline.io)

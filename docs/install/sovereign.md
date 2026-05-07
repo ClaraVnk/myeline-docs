@@ -75,11 +75,10 @@ Le script vous accueille et vérifie le système :
 ```
 ── Choix du mode de déploiement
 
-  1) Installation classique
   2) Installation souveraine        ← votre choix
   3) Installation souverain-hybride
 
-    Votre choix [1/2/3] : 2
+    Votre choix [2/3] : 2
 [✓] Mode : sovereign
 ```
 
