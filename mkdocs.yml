@@ -122,6 +122,7 @@ plugins:
             "Pré-requis serveur": "Server prerequisites"
             "Installation souveraine": "Sovereign installation"
             "Installation souverain-hybride": "Sovereign-hybrid installation"
+            "Rocky / RHEL + Quadlet": "Rocky / RHEL + Quadlet"
             "Première connexion admin": "First admin login"
             "Opérations": "Operations"
             "Sauvegarde et restauration": "Backup and restore"
@@ -159,6 +160,7 @@ nav:
       - Pré-requis serveur: install/prerequisites.md
       - Installation souveraine: install/sovereign.md
       - Installation souverain-hybride: install/sovereign-hybrid.md
+      - Rocky / RHEL + Quadlet: install/rocky-quadlet.md
       - Première connexion admin: install/first-login.md
   - Opérations:
       - operations/index.md
