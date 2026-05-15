@@ -116,8 +116,8 @@ les connecteurs cloud (`/user/cloud`) ou les scrapers RSS / web
 (`/user/scrapers`). Pour un premier test :
 
 1. Connecter un drive contenant quelques PDF (S3 / WebDAV interne
-   en souverain ; Google Drive / OneDrive / Dropbox en
-   souverain-hybride avec vos OAuth apps).
+   en souverain ; Google Drive via service account, ou
+   OneDrive / Dropbox avec vos OAuth apps, en souverain-hybride).
 2. Lancer une sync manuelle depuis `/user/cloud` (« Synchroniser »).
 3. Attendre ~30-90 s pour l'indexation (dépend de la taille).
 4. `/user` (recherche) → poser une question sur le contenu.

@@ -51,9 +51,13 @@ be routed per-organisation toward the LLM of your choice using
 **your own API key** (BYOK). You pay the AI provider directly, no
 intermediary.
 
-**Implications**: to enable cloud connectors (GDrive, OneDrive,
-Dropbox), you must register **your own OAuth apps** with each
-provider — see the [BYOC](sovereign-hybrid.md#byoc) walkthrough.
+**Implications**: to enable cloud connectors, you set up credentials
+with each provider from your tenant:
+- **Google Drive**: create a GCP service account in your project
+- **OneDrive / Dropbox / Notion**: register your own OAuth apps (BYOC)
+
+Full walkthrough:
+[Sovereign-hybrid installation § Cloud connectors](../install/sovereign-hybrid.md#cloud-storage-connectors).
 
 [Learn more →](sovereign-hybrid.md){ .md-button .md-button--primary }
 

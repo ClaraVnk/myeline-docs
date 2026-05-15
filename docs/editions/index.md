@@ -51,9 +51,13 @@ mais la synthèse peut être routée par organisation vers le LLM de
 votre choix avec **votre propre clé API** (BYOK). Vous payez
 directement le provider IA, pas un intermédiaire.
 
-**Implications** : pour activer les connecteurs cloud (GDrive,
-OneDrive, Dropbox), vous devez créer **vos propres apps OAuth**
-chez chaque provider — voir le walkthrough [BYOC](sovereign-hybrid.md#byoc).
+**Implications** : pour activer les connecteurs cloud, vous configurez
+les credentials chez chaque provider depuis votre tenant :
+- **Google Drive** : créez un service account GCP dans votre projet
+- **OneDrive / Dropbox / Notion** : créez vos propres apps OAuth (BYOC)
+
+Voir le walkthrough complet :
+[Installation souverain-hybride § Connecteurs cloud](../install/sovereign-hybrid.md#connecteurs-de-stockage-cloud).
 
 [En savoir plus →](sovereign-hybrid.md){ .md-button .md-button--primary }
 

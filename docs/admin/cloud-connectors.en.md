@@ -10,21 +10,46 @@ scope — indexed files become RAG-queryable.
 |------------|---------------------|------------------|
 | **S3 / S3-compatible** (internal MinIO) | ✅ | ✅ |
 | **WebDAV** (internal Nextcloud) | ✅ | ✅ |
-| **Google Drive** | ❌ | ✅ (BYOC) |
-| **OneDrive / SharePoint** | ❌ | ✅ (BYOC) |
-| **Dropbox** | ❌ | ✅ (BYOC) |
-| **kDrive Infomaniak** | ❌ | ✅ |
-| **Zotero** | ❌ | ✅ |
-| **Notion** | ❌ | ✅ (BYOC) |
+| **Google Drive** | ❌ | ✅ (GCP service account) |
+| **OneDrive / SharePoint** | ❌ | ✅ (BYOC OAuth) |
+| **Dropbox** | ❌ | ✅ (BYOC OAuth) |
+| **kDrive Infomaniak** | ❌ | ✅ (API token) |
+| **Zotero** | ❌ | ✅ (API key) |
+| **Notion** | ❌ | ✅ (BYOC OAuth) |
 
 In pure sovereign, only **S3 and WebDAV toward internal infra** are
 exposed — buttons for other connectors are hidden and the
 corresponding routes return 404.
 
-## BYOC — Bring Your Own Credentials
+## Google Drive — service account
 
-In sovereign-hybrid, you **must register your own OAuth apps** with
-Google / Microsoft / Dropbox / Notion. See the full walkthrough:
+Google Drive uses a **GCP service account** (server-to-server).
+Sharing model:
+
+1. The operator creates a service account in their GCP project (full
+   procedure: [Sovereign-hybrid installation § Google Drive](../install/sovereign-hybrid.md#google-drive-service-account)).
+2. The JSON is pasted into `GOOGLE_SERVICE_ACCOUNT_CREDENTIALS` in `.env`.
+3. **Each user** who wants to index a folder shares it as *Viewer* with
+   the service account email, then pastes the folder URL into
+   `/user/cloud/gdrive/connect`.
+4. The service account only sees the folders explicitly shared by
+   users — not the rest of their Drive.
+
+Properties of this model:
+
+- ✅ Continuous background indexing without periodic token renewal
+  (no access token to refresh, no OAuth scope to renew on the user side)
+- ✅ One GCP app for the whole tenant (vs. one app per user or per
+  deployment)
+- ✅ Granular revocation: the user removes the folder share from the
+  Drive UI, Myeline's access drops instantly
+- ✅ GCP-auditable: all service account accesses appear in the
+  project's Cloud Audit Logs, traceable at the file level
+
+## BYOC — Bring Your Own Credentials (OneDrive, Dropbox, Notion)
+
+For the remaining OAuth connectors, you **must register your own OAuth
+apps** with Microsoft / Dropbox / Notion. See the full walkthrough:
 [Sovereign-hybrid installation § BYOC](../install/sovereign-hybrid.md#byoc).
 
 **Why this is mandatory**: the OAuth redirect URI points to

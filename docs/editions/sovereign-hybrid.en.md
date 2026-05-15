@@ -19,8 +19,8 @@ graph TB
     Web --> Chroma[(ChromaDB)]
     Web --> Ollama[Local Ollama<br/>bge-m3 embedding]
     Web -.->|"BYOK Mistral<br/>Claude / OpenAI / Gemini<br/>(per org, your choice)"| LLM[AI provider<br/>of your choice]
-    Web -.->|"BYOC OAuth<br/>(your own apps)"| GDrive[Google Drive]
-    Web -.->|"BYOC OAuth"| OneDrive[OneDrive]
+    Web -.->|"GCP service account<br/>(your project)"| GDrive[Google Drive]
+    Web -.->|"BYOC OAuth<br/>(your own apps)"| OneDrive[OneDrive]
 ```
 
 ## Differences vs pure sovereign
@@ -29,7 +29,8 @@ graph TB
 |----------------------------|---------------------|----------------------------|
 | Local Ollama               | ✅                  | ✅                         |
 | External API (Mistral, etc.) | ❌                | ✅ (BYOK per org)          |
-| Google Drive / OneDrive / Dropbox connectors | ❌ | ✅ (BYOC — your OAuth apps) |
+| Google Drive connector     | ❌                  | ✅ (GCP service account)   |
+| OneDrive / Dropbox connectors | ❌               | ✅ (BYOC — your OAuth apps) |
 | Notion / Zotero connector  | ❌                  | ✅                         |
 | Stripe                     | ❌                  | ❌                         |
 | Local audit log            | ✅                  | ✅                         |

@@ -11,21 +11,47 @@ deviennent interrogeables en RAG.
 |------------|---------------------|-------------------|
 | **S3 / S3-compatible** (MinIO interne) | ✅ | ✅ |
 | **WebDAV** (Nextcloud interne) | ✅ | ✅ |
-| **Google Drive** | ❌ | ✅ (BYOC) |
-| **OneDrive / SharePoint** | ❌ | ✅ (BYOC) |
-| **Dropbox** | ❌ | ✅ (BYOC) |
-| **kDrive Infomaniak** | ❌ | ✅ |
-| **Zotero** | ❌ | ✅ |
-| **Notion** | ❌ | ✅ (BYOC) |
+| **Google Drive** | ❌ | ✅ (service account GCP) |
+| **OneDrive / SharePoint** | ❌ | ✅ (BYOC OAuth) |
+| **Dropbox** | ❌ | ✅ (BYOC OAuth) |
+| **kDrive Infomaniak** | ❌ | ✅ (API token) |
+| **Zotero** | ❌ | ✅ (API key) |
+| **Notion** | ❌ | ✅ (BYOC OAuth) |
 
 En souverain pur, seuls **S3 et WebDAV vers infra interne** sont
 exposés — les boutons des autres connecteurs sont masqués et les
 routes correspondantes renvoient 404.
 
-## BYOC — Bring Your Own Credentials
+## Google Drive — compte de service
 
-En souverain-hybride, vous **devez enregistrer vos propres apps
-OAuth** chez Google / Microsoft / Dropbox / Notion. Voir le
+Google Drive utilise un **service account GCP** (server-to-server).
+Modèle de partage :
+
+1. L'opérateur crée un service account dans son projet GCP (procédure
+   complète : [Installation souverain-hybride § Google Drive](../install/sovereign-hybrid.md#google-drive-compte-de-service)).
+2. Le JSON est collé dans `GOOGLE_SERVICE_ACCOUNT_CREDENTIALS` du `.env`.
+3. **Chaque utilisateur** qui veut indexer un dossier le partage en
+   *Lecteur* avec l'email du service account, puis colle l'URL du
+   dossier dans `/user/cloud/gdrive/connect`.
+4. Le service account voit **uniquement** les dossiers partagés
+   explicitement par les utilisateurs — pas le reste de leur Drive.
+
+Propriétés de ce modèle :
+
+- ✅ Indexation continue en arrière-plan sans renouvellement périodique
+  de tokens (pas d'access token à refresh, pas de scope OAuth à
+  renouveler côté utilisateur)
+- ✅ Une seule app GCP pour toute la tenant (vs. une app par utilisateur
+  ou par déploiement)
+- ✅ Révocation granulaire : l'utilisateur retire le partage du dossier
+  côté Drive UI, l'accès tombe instantanément côté Myeline
+- ✅ Auditable côté GCP : tous les accès du service account apparaissent
+  dans les Cloud Audit Logs du projet, traçables au fichier près
+
+## BYOC — Bring Your Own Credentials (OneDrive, Dropbox, Notion)
+
+Pour les connecteurs OAuth restants, vous **devez enregistrer vos
+propres apps OAuth** chez Microsoft / Dropbox / Notion. Voir le
 walkthrough complet :
 [Installation souverain-hybride § BYOC](../install/sovereign-hybrid.md#byoc).
 

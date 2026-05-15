@@ -103,26 +103,35 @@ Dropbox.
   myeline.io credentials will not work here.
 ```
 
-#### Google Drive
+#### Google Drive (service account)
+
+The Google Drive connector uses a **GCP service account**
+(server-to-server). Model: users explicitly share their Drive folder
+with the service account email, and Myeline indexes the folder in the
+background. No per-user OAuth flow, no redirect URI to configure.
 
 1. **[console.cloud.google.com](https://console.cloud.google.com)** → create a project (or select one)
 2. **APIs & Services → Library**: enable **Google Drive API**
-3. **APIs & Services → OAuth consent screen**:
-    - User type: **Internal** if everyone is in your Workspace, **External** otherwise
-    - App name: *"ACME Myeline"*
-    - Authorized domains: add `myeline.acme.local`
-    - Scopes: add `auth/drive.readonly`
-4. **Credentials → Create Credentials → OAuth client ID**:
-    - Type: **Web application**
-    - Authorized redirect URIs: `https://myeline.acme.local/user/cloud/gdrive/callback`
-5. Paste `client_id` and `client_secret` into the installer wizard
+3. **IAM & Admin → Service Accounts → Create Service Account**:
+    - Name: *"myeline-drive-reader"*
+    - Description: *"ACME Myeline — read-only access to user-shared folders"*
+    - **No IAM role to attach** (the SA needs no GCP project-level rights — it can only access the Drive folders your users explicitly share with it)
+4. **Click the created service account → KEYS tab → ADD KEY → Create new key → JSON**: a `<project>-<id>.json` file downloads
+5. **Note the service account email**: `myeline-drive-reader@<project>.iam.gserviceaccount.com` — this is the email your users will add as *Viewer* on their Drive folder
+6. Paste the JSON on **a single line** into the installer wizard (wrapped in single quotes to preserve the internal double quotes):
 
 ```
     Enable Google Drive connectors? [y/N]: y
-      Redirect URI to authorise: https://myeline.acme.local/user/cloud/gdrive/callback
-      Google OAuth client_id: xxxxxxxxx.apps.googleusercontent.com
-      Google OAuth client_secret: GOCSPX-xxxxxxxxxxxxxxxxxxxxxxxx
+      Service account JSON (one line, single-quoted):
+      '{"type":"service_account","project_id":"…","private_key":"-----BEGIN PRIVATE KEY-----\\n…\\n-----END PRIVATE KEY-----\\n","client_email":"myeline-drive-reader@….iam.gserviceaccount.com",…}'
 ```
+
+Tip to compact the JSON: `cat downloaded.json | jq -c .`
+
+> ⚠️ **The JSON contains an RSA private key** (`private_key` field). Store
+> it in your vault like any critical password. In case of leak: GCP Console
+> → Service Account → KEYS → DELETE the compromised key, then CREATE a new
+> one and update `GOOGLE_SERVICE_ACCOUNT_CREDENTIALS`.
 
 #### OneDrive (Microsoft Graph)
 

@@ -21,14 +21,52 @@ podman exec myeline-cron cat /var/log/cron/check_cloud_sync.log | tail -50
 podman exec myeline-web flask run-cron check_cloud_sync
 ```
 
-## OAuth refusé / `redirect_uri_mismatch`
+## Google Drive — dossier inaccessible au service account
+
+**Symptôme** : à la connexion d'un dossier Drive (`/user/cloud/gdrive/connect`),
+message *« Impossible d'accéder au dossier — vérifiez le partage »*, ou
+`last_error: "403 Forbidden"` lors de la sync.
+
+**Cause** : le dossier n'a pas été partagé avec l'email du service account,
+ou seulement avec un rôle insuffisant (ex. partagé uniquement avec un
+groupe Workspace qui n'inclut pas le SA).
+
+**Résolution** :
+
+1. Récupérer l'email du service account affiché dans
+   `/user/cloud/gdrive/connect` (forme
+   `myeline-drive-reader@<project>.iam.gserviceaccount.com`).
+2. Côté Google Drive UI : clic droit sur le dossier → **Partager** →
+   ajouter cet email exact en rôle **Lecteur** → **Envoyer**.
+3. Re-tenter la connexion sur Myeline.
+
+> Si vous indexez un dossier dans un **Drive partagé** (Workspace shared
+> drive), le service account doit être membre du shared drive lui-même —
+> le partage de fichier individuel ne suffit pas. Ajoutez le SA en
+> *Lecteur* dans Drive Web UI → Drives partagés → *votre drive* → Membres.
+
+## Token API expiré (OneDrive, Dropbox, Notion)
+
+**Symptôme** : `last_error: "401 Unauthorized"`, `status: error`.
+
+**Cause** : le refresh token OAuth a été révoqué (mot de passe changé
+chez le provider, app désautorisée, période d'inactivité dépassée).
+
+**Résolution** : l'utilisateur doit **reconnecter son drive** depuis
+`/user/cloud` (bouton « Reconnecter » à côté de la connexion en
+erreur). L'historique de sync est préservé.
+
+> Ne s'applique **pas à Google Drive** : depuis Myeline v1.0.2, Drive
+> utilise un compte de service (server-to-server) qui ne dépend pas
+> de tokens OAuth utilisateur. Voir [Connecteurs cloud § Google Drive](../admin/cloud-connectors.md#google-drive--compte-de-service).
+
+## OAuth refusé / `redirect_uri_mismatch` (OneDrive, Dropbox, Notion)
 
 **Symptôme** : « Erreur lors de la connexion OAuth », redirection
 infinie.
 
-**Cause** : le redirect URI déclaré dans votre app OAuth (Google
-Console / Azure / Dropbox / etc.) ne correspond pas à celui que
-Myeline génère.
+**Cause** : le redirect URI déclaré dans votre app OAuth (Azure /
+Dropbox / Notion) ne correspond pas à celui que Myeline génère.
 
 **Résolution** :
 
@@ -37,7 +75,7 @@ Myeline génère.
    ```bash
    podman exec myeline-web flask shell -c "
    from flask import url_for
-   print(url_for('user_cloud.gdrive_callback', _external=True))
+   print(url_for('user_cloud.cloud_callback', provider='onedrive', _external=True))
    "
    ```
 
@@ -47,17 +85,6 @@ Myeline génère.
 3. Vérifier `OAUTH_REDIRECT_BASE_URL` dans `.env` — doit pointer
    vers l'URL publique exacte (ex. `https://myeline.acme.local`),
    pas une IP privée.
-
-## Token expiré non renouvelé
-
-**Symptôme** : `last_error: "401 Unauthorized"`, `status: error`.
-
-**Cause** : le refresh token a été révoqué (mot de passe changé chez
-le provider, app désautorisée, période d'inactivité dépassée).
-
-**Résolution** : l'utilisateur doit **reconnecter son drive** depuis
-`/user/cloud` (bouton « Reconnecter » à côté de la connexion en
-erreur). L'historique de sync est préservé.
 
 ## 429 / Rate limit
 

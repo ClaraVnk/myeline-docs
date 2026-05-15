@@ -104,26 +104,36 @@ C'est **le moment-clé** du déploiement souverain-hybride. Vous devez
   vos URIs ; les credentials de myeline.io ne fonctionneront pas ici.
 ```
 
-#### Google Drive
+#### Google Drive (compte de service)
+
+Le connecteur Google Drive utilise un **compte de service GCP**
+(server-to-server). Le modèle est *server-to-server* : l'utilisateur
+partage explicitement son dossier Drive avec l'email du service
+account, et Myeline indexe le dossier en arrière-plan. Pas de flow
+OAuth par utilisateur, pas de redirect URI à configurer.
 
 1. **[console.cloud.google.com](https://console.cloud.google.com)** → créer un projet (ou en sélectionner un)
 2. **APIs & Services → Library** : activer **Google Drive API**
-3. **APIs & Services → OAuth consent screen** :
-    - User type : **Internal** si tout le monde est dans votre Workspace, **External** sinon
-    - App name : *"ACME Myeline"*
-    - Authorized domains : ajouter `myeline.acme.local`
-    - Scopes : ajouter `auth/drive.readonly`
-4. **Credentials → Create Credentials → OAuth client ID** :
-    - Type : **Web application**
-    - Authorized redirect URIs : `https://myeline.acme.local/user/cloud/gdrive/callback`
-5. Coller `client_id` et `client_secret` dans le wizard installeur
+3. **IAM & Admin → Service Accounts → Create Service Account** :
+    - Name : *"myeline-drive-reader"*
+    - Description : *"ACME Myeline — read-only access to user-shared folders"*
+    - **Pas de rôle IAM à attribuer** (le SA n'a besoin d'aucun droit côté projet GCP — seuls les dossiers Drive que vos users lui partageront seront accessibles)
+4. **Cliquez sur le service account créé → onglet KEYS → ADD KEY → Create new key → JSON** : un fichier `<project>-<id>.json` se télécharge
+5. **Notez l'email du service account** : `myeline-drive-reader@<project>.iam.gserviceaccount.com` — c'est cet email que vos utilisateurs ajouteront en *Lecteur* sur leur dossier Drive
+6. Collez le JSON sur **une seule ligne** dans le wizard installeur (entouré de simples quotes pour préserver les guillemets internes) :
 
 ```
     Activer les connecteurs Google Drive ? [o/N] : o
-      Redirect URI à autoriser : https://myeline.acme.local/user/cloud/gdrive/callback
-      Google OAuth client_id : xxxxxxxxx.apps.googleusercontent.com
-      Google OAuth client_secret : GOCSPX-xxxxxxxxxxxxxxxxxxxxxxxx
+      Service account JSON (une ligne, entre quotes) :
+      '{"type":"service_account","project_id":"…","private_key":"-----BEGIN PRIVATE KEY-----\\n…\\n-----END PRIVATE KEY-----\\n","client_email":"myeline-drive-reader@….iam.gserviceaccount.com",…}'
 ```
+
+Astuce pour compacter le JSON : `cat downloaded.json | jq -c .`
+
+> ⚠️ **Le JSON contient une clé privée RSA** (champ `private_key`). Stockez-le
+> dans votre coffre comme n'importe quel mot de passe critique. En cas de
+> fuite : Console GCP → Service Account → KEYS → DELETE la clé compromise,
+> puis CREATE une nouvelle clé et mettez à jour `GOOGLE_SERVICE_ACCOUNT_CREDENTIALS`.
 
 #### OneDrive (Microsoft Graph)
 
