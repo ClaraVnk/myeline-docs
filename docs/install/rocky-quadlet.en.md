@@ -148,6 +148,72 @@ fix the context/boolean instead.
 
 ---
 
+## Rootless UIDs — calculating the host ↔ container mapping
+
+In rootless Podman, container internal UIDs are remapped to host UIDs
+via `/etc/subuid`. To prepare a bind-mount with the correct permissions
+(typical case: `chown` of the mariadb datadir before first boot), you
+must **compute the host UID** that corresponds.
+
+Formula:
+```
+host_uid = subuid_start + container_uid - 1
+```
+
+Get `subuid_start` from `/etc/subuid`:
+```bash
+SUBUID_START=$(grep "^$USER:" /etc/subuid | cut -d: -f2)
+echo "subuid_start = $SUBUID_START"
+```
+
+Concrete examples:
+
+| Service | Container UID | Calculation (subuid_start=589824) | Host UID |
+|---|---|---|---|
+| mariadb (`mysql` user) | 999 | 589824 + 999 - 1 | **590822** |
+| redis (`redis` user) | 999 | 589824 + 999 - 1 | **590822** |
+| Myeline web (`appuser`) | 1000 | 589824 + 1000 - 1 | **590823** |
+
+Typical use before first mariadb boot:
+```bash
+sudo chown -R 590822:590822 ~/myeline/data/mysql
+```
+
+---
+
+## ACL for `appuser` writes
+
+The `appuser` user in the container (host UID = `subuid_start + 999`)
+must be able to **write** to `~/myeline/data/` for `data/backups/`,
+`data/cache/`, etc. If you leave that directory owned by your host
+user (typically UID 1001), writes are denied.
+
+Recommended solution: **POSIX ACLs** rather than recursive `chown`
+(which would break `data/mysql/` and `data/ollama/` that have their
+own ownership):
+
+```bash
+sudo dnf install -y acl   # if not already installed
+
+APPUSER_HOST_UID=$((SUBUID_START + 999))
+
+# Current permissions (existing files)
+sudo setfacl -m u:${APPUSER_HOST_UID}:rwx ~/myeline/data
+
+# Default permissions (inherited by future files)
+sudo setfacl -d -m u:${APPUSER_HOST_UID}:rwx ~/myeline/data
+```
+
+Verify the ACLs are set:
+```bash
+getfacl ~/myeline/data
+# Should show:
+# user:590823:rwx
+# default:user:590823:rwx
+```
+
+---
+
 ## Healthchecks with `curl` (not `wget`)
 
 The Myeline image bundles `curl` but **not `wget`**. If your Quadlet

@@ -150,6 +150,72 @@ contournement — corrigez le contexte/booléen à la place.
 
 ---
 
+## UIDs en rootless — calculer le mapping host ↔ container
+
+En Podman rootless, les UIDs internes des conteneurs sont remappés vers
+des UIDs hôte via `/etc/subuid`. Pour préparer un bind-mount avec les
+bonnes permissions (cas typique : `chown` du datadir mariadb avant le
+1er boot), vous devez **calculer le host UID** correspondant.
+
+Formule :
+```
+host_uid = subuid_start + container_uid - 1
+```
+
+Récupérer `subuid_start` depuis `/etc/subuid` :
+```bash
+SUBUID_START=$(grep "^$USER:" /etc/subuid | cut -d: -f2)
+echo "subuid_start = $SUBUID_START"
+```
+
+Exemples concrets :
+
+| Service | Container UID | Calcul (subuid_start=589824) | Host UID |
+|---|---|---|---|
+| mariadb (`mysql` user) | 999 | 589824 + 999 - 1 | **590822** |
+| redis (`redis` user) | 999 | 589824 + 999 - 1 | **590822** |
+| Myeline web (`appuser`) | 1000 | 589824 + 1000 - 1 | **590823** |
+
+Application typique avant 1er boot mariadb :
+```bash
+sudo chown -R 590822:590822 ~/myeline/data/mysql
+```
+
+---
+
+## ACL pour les writes côté `appuser`
+
+Le user `appuser` dans le conteneur (host UID = `subuid_start + 999`)
+doit pouvoir **écrire** dans `~/myeline/data/` pour `data/backups/`,
+`data/cache/`, etc. Si vous gardez ce dossier owned par votre user
+host (typiquement UID 1001), l'écriture est refusée.
+
+Solution recommandée : **ACL POSIX** plutôt que `chown` récursif (qui
+casserait `data/mysql/` et `data/ollama/` qui ont leurs propres
+ownerships) :
+
+```bash
+sudo dnf install -y acl   # si pas déjà installé
+
+APPUSER_HOST_UID=$((SUBUID_START + 999))
+
+# Permissions courantes (les fichiers existants)
+sudo setfacl -m u:${APPUSER_HOST_UID}:rwx ~/myeline/data
+
+# Permissions héritées (les fichiers à venir)
+sudo setfacl -d -m u:${APPUSER_HOST_UID}:rwx ~/myeline/data
+```
+
+Vérifier que les ACL sont posées :
+```bash
+getfacl ~/myeline/data
+# Doit montrer :
+# user:590823:rwx
+# default:user:590823:rwx
+```
+
+---
+
 ## Healthchecks avec `curl` (pas `wget`)
 
 L'image Myeline embarque `curl` mais **pas `wget`**. Si votre unité
