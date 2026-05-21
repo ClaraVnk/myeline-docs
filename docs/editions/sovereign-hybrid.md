@@ -53,6 +53,44 @@ Les clés sont stockées **chiffrées** dans la DB
 Aucune clé "platform" partagée — chaque org paie son provider en
 direct.
 
+### BYOK embedding (synapse 0025)
+
+Depuis la migration 0025, chaque organisation Enterprise peut aussi
+choisir son **fournisseur d'embedding** indépendamment du LLM. Utile
+quand le déploiement utilise Ollama bge-m3 par défaut mais qu'une org
+veut un embedding de meilleure qualité (Voyage, Cohere multilingue) ou
+une trace de facturation séparée (Mistral, OpenAI).
+
+| Fournisseur | Modèle par défaut             | Dim     | Notes                              |
+|-------------|-------------------------------|---------|------------------------------------|
+| Mistral     | `mistral-embed`               | 1024    | 🇫🇷 hébergé UE, RGPD              |
+| OpenAI      | `text-embedding-3-small`      | 1536    | `-3-large` 3072 dim aussi supporté |
+| Voyage      | `voyage-3`                    | 1024    | Qualité top, anglais + multilingue |
+| Cohere      | `embed-multilingual-v3.0`     | 1024    | Multilingue fort, 100+ langues     |
+
+Configuration via `/org/<slug>/admin` → carte « Fournisseur d'embedding
+(BYOK) ». Le routing s'applique uniquement à la collection
+`org_{id}_shared` ; la collection partagée publique et les bibliothèques
+personnelles des membres restent sur le fournisseur par défaut du
+déploiement.
+
+**Verrou dimensionnel.** Un changement de fournisseur sur une collection
+déjà indexée est refusé tant que les vecteurs existants ne sont pas
+effacés — même quand la dimension est identique (un vecteur Mistral
+1024 dim et un vecteur Voyage 1024 dim vivent dans des espaces cosinus
+incompatibles). Procédure :
+
+```bash
+flask wipe-org-embed-collection --org <id> --confirm
+# Puis activer le nouveau fournisseur via /org/<slug>/admin
+flask reindex-embeddings
+```
+
+**Sécurité.** Les clés d'embedding suivent le même schéma de stockage
+que les clés LLM (`org.embed_api_key_enc` Fernet-chiffré, jamais réémis
+en clair par l'UI — un masque `••••••••` confirme uniquement qu'une
+clé est enregistrée).
+
 ## BYOC — Bring Your Own Credentials { #byoc }
 
 Pour activer les connecteurs cloud (Google Drive, OneDrive, Dropbox,

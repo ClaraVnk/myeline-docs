@@ -52,6 +52,41 @@ Keys are stored **encrypted** in the DB (`org.ai_api_key_enc` via
 Fernet, derived from `CLOUD_TOKEN_KEY`). No shared "platform" key —
 each org pays the provider directly.
 
+### BYOK embedding (synapse 0025)
+
+Since migration 0025, each Enterprise organisation can also choose its
+**embedding provider** independently of the LLM. Useful when the
+deployment defaults to Ollama bge-m3 but an org wants a higher-quality
+embedding (Voyage, Cohere multilingual) or a separate billing trail
+(Mistral, OpenAI).
+
+| Provider    | Default model                  | Dim     | Notes                                |
+|-------------|-------------------------------|---------|--------------------------------------|
+| Mistral     | `mistral-embed`               | 1024    | 🇫🇷 EU-hosted, GDPR                 |
+| OpenAI      | `text-embedding-3-small`      | 1536    | `-3-large` 3072-dim also supported   |
+| Voyage      | `voyage-3`                    | 1024    | Top quality, English + multilingual  |
+| Cohere      | `embed-multilingual-v3.0`     | 1024    | Strong multilingual coverage         |
+
+Configured via `/org/<slug>/admin` → "Fournisseur d'embedding (BYOK)"
+card. Routing only applies to the `org_{id}_shared` collection — the
+public shared collection and member personal libraries stay on the
+deployment-wide default provider.
+
+**Dimension lock.** Switching providers on an already-indexed collection
+is refused until existing vectors are wiped — even when the dimension
+matches (a 1024-dim Mistral vector and a 1024-dim Voyage vector live in
+incompatible cosine spaces). Procedure:
+
+```bash
+flask wipe-org-embed-collection --org <id> --confirm
+# Then activate the new provider via /org/<slug>/admin
+flask reindex-embeddings
+```
+
+**Security.** Embedding keys follow the same storage scheme as LLM keys
+(`org.embed_api_key_enc` Fernet-encrypted, never echoed back by the UI
+— a `••••••••` mask only confirms that a key is on file).
+
 ## BYOC — Bring Your Own Credentials { #byoc }
 
 To enable cloud connectors (Google Drive, OneDrive, Dropbox, kDrive)
