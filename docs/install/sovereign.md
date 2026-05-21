@@ -157,6 +157,52 @@ L'URL `http://ollama:11434` pointe vers le service Ollama interne au
 docker-compose. Si vous utilisez un Ollama externe (sur un autre
 serveur GPU dédié), pointez vers son URL réelle.
 
+#### Choix du modèle d'embedding
+
+**`bge-m3`** est le défaut et reste **notre recommandation** pour la
+majorité des déploiements : 1024 dimensions, multilingue (excellent en
+FR/EN), 568M paramètres, équilibre qualité/vitesse imbattable. Mais si
+votre corpus est mono-langue ou votre matériel particulier, vous pouvez
+basculer sur un autre modèle Ollama. Tous sont testés et supportés —
+adaptez `OLLAMA_EMBED_MODEL` dans `.env` puis [réindexez](#reindexer-apres-changement-dembedder).
+
+| Modèle Ollama | Dim | Langues | Taille | Quand l'utiliser |
+|---------------|----:|---------|-------:|------------------|
+| **`bge-m3`** *(défaut)* | 1024 | FR/EN/multi excellents | 568M | Cas général, multilingue |
+| `mxbai-embed-large` | 1024 | EN très fort, FR correct | 334M | Corpus anglais à dominante technique |
+| `snowflake-arctic-embed-l` | 1024 | EN très fort | 334M | Corpus anglais — alternative à mxbai |
+| `nomic-embed-text` | 768 | EN principalement | 137M | CPU faible, corpus EN, beaucoup d'inférences |
+| `paraphrase-multilingual` | 768 | Multilingue (qualité ↓) | 278M | Léger, multilingue, qualité moindre |
+| `all-minilm` | 384 | EN/limité | 23M | Hardware très contraint, démos |
+
+!!! warning "Compatibilité dimensionnelle"
+    `bge-m3`, `mxbai-embed-large` et `snowflake-arctic-embed-l` produisent
+    tous des vecteurs en **1024 dimensions** — vous pouvez basculer entre
+    eux sans erreur ChromaDB, mais le **rerank-by-similarity sera dégradé**
+    tant que les anciens vecteurs ne sont pas réindexés (les espaces
+    vectoriels diffèrent même à dimension égale). Les autres modèles
+    (768 / 384) requièrent une réindexation **obligatoire** sinon les
+    requêtes échouent avec un mismatch dimensionnel.
+
+#### Réindexer après changement d'embedder
+
+Après avoir modifié `OLLAMA_EMBED_MODEL` :
+
+```bash
+# 1. Pull le nouveau modèle
+podman-compose exec ollama ollama pull mxbai-embed-large
+
+# 2. Redémarrer le web pour relire .env
+podman-compose down && podman-compose up -d
+
+# 3. Lancer la réindexation (peut prendre plusieurs minutes selon corpus)
+podman-compose exec web flask reindex-embeddings
+```
+
+Pendant la réindexation, **la qualité de recherche est dégradée** mais
+l'application reste accessible. Lancez idéalement hors heures de
+bureau.
+
 ### 3.7 Connecteurs cloud
 
 ```

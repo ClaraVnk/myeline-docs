@@ -156,6 +156,50 @@ The URL `http://ollama:11434` points to the Ollama service inside
 the docker-compose. If you use an external Ollama (on a dedicated
 GPU server), point to its real URL.
 
+#### Choosing an embedding model
+
+**`bge-m3`** is the default and **our recommendation** for most
+deployments: 1024 dimensions, multilingual (excellent FR/EN), 568M
+parameters, the best quality/speed trade-off we've benchmarked. But if
+your corpus is monolingual or your hardware is specific, you can swap
+to any other Ollama embedder. All are tested and supported — change
+`OLLAMA_EMBED_MODEL` in `.env` then [reindex](#reindex-after-an-embedder-change).
+
+| Ollama model | Dim | Languages | Size | When to use |
+|--------------|----:|-----------|-----:|-------------|
+| **`bge-m3`** *(default)* | 1024 | FR/EN/multi excellent | 568M | General case, multilingual |
+| `mxbai-embed-large` | 1024 | EN very strong, FR OK | 334M | English-heavy technical corpus |
+| `snowflake-arctic-embed-l` | 1024 | EN very strong | 334M | English corpus — alternative to mxbai |
+| `nomic-embed-text` | 768 | EN mostly | 137M | Weak CPU, EN corpus, high call volume |
+| `paraphrase-multilingual` | 768 | Multilingual (lower quality) | 278M | Lightweight, multilingual, lower quality |
+| `all-minilm` | 384 | EN/limited | 23M | Very constrained hardware, demos |
+
+!!! warning "Dimension compatibility"
+    `bge-m3`, `mxbai-embed-large` and `snowflake-arctic-embed-l` all
+    produce **1024-dimensional vectors** — you can swap between them
+    without a ChromaDB error, but **rerank-by-similarity quality will be
+    degraded** until old vectors are reindexed (the vector spaces differ
+    even at equal dimension). Other models (768 / 384) **require**
+    reindexing — queries otherwise fail with a dimension mismatch.
+
+#### Reindex after an embedder change
+
+After updating `OLLAMA_EMBED_MODEL`:
+
+```bash
+# 1. Pull the new model
+podman-compose exec ollama ollama pull mxbai-embed-large
+
+# 2. Restart web so it picks up the new .env
+podman-compose down && podman-compose up -d
+
+# 3. Run the reindex (a few minutes depending on corpus size)
+podman-compose exec web flask reindex-embeddings
+```
+
+Search quality is **degraded during the reindex** but the app stays
+available. Run it ideally outside business hours.
+
 ### 3.7 Cloud connectors
 
 ```

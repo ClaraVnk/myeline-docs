@@ -1,6 +1,7 @@
 # Ollama issues
 
-Ollama always handles **embedding** (model `bge-m3`) and, in pure
+Ollama always handles **embedding** (default model `bge-m3` —
+[see supported alternatives](#switching-embedding-model)) and, in pure
 sovereign, **also synthesis**. Ollama failures block the entire RAG
 search — it's the most sensitive component.
 
@@ -130,3 +131,34 @@ podman logs -f ollama
 ```
 
 Restore `OLLAMA_DEBUG=0` afterwards to avoid filling the disk.
+
+## Switching embedding model
+
+The default `bge-m3` covers most cases (multilingual, 1024 dim,
+optimal quality/speed). If you prefer another model (monolingual
+corpus, constrained hardware, higher quality requirement), see the full
+table and procedure in
+[Sovereign install § Choosing an embedding model](../install/sovereign.en.md#choosing-an-embedding-model).
+
+**Express recap**:
+
+```bash
+# 1. Pull the new model inside the Ollama container
+podman exec ollama ollama pull mxbai-embed-large
+
+# 2. Update .env
+sed -i 's/^OLLAMA_EMBED_MODEL=.*/OLLAMA_EMBED_MODEL=mxbai-embed-large/' .env
+
+# 3. Restart web to re-read .env (down + up, not restart — restart
+# doesn't re-read env_file in podman-compose)
+podman-compose down && podman-compose up -d
+
+# 4. Reindex the existing corpus with the new model
+podman-compose exec web flask reindex-embeddings
+```
+
+!!! warning "Dimension change = mandatory reindex"
+    Switching from `bge-m3` (1024) to `nomic-embed-text` (768) without
+    reindexing triggers `embedding dimension mismatch: collection has
+    1024, query has 768` on the first query. Always run the reindex
+    **before** reopening the app to users.

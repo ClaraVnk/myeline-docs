@@ -1,6 +1,7 @@
 # Problèmes Ollama
 
-Ollama assure **toujours l'embedding** (modèle `bge-m3`) et, en
+Ollama assure **toujours l'embedding** (modèle `bge-m3` par défaut —
+[voir alternatives supportées](#changer-de-modele-dembedding)) et, en
 souverain pur, **aussi la synthèse**. Les pannes Ollama bloquent
 toute la recherche RAG — c'est le composant le plus sensible.
 
@@ -132,3 +133,34 @@ podman logs -f ollama
 ```
 
 Restaurer ensuite à `OLLAMA_DEBUG=0` pour ne pas saturer le disque.
+
+## Changer de modèle d'embedding
+
+Le défaut `bge-m3` couvre la majorité des cas (multilingue, 1024 dim,
+qualité/vitesse optimale). Si vous préférez un autre modèle (corpus
+mono-langue, hardware contraint, exigence qualité ↑), voir le tableau
+complet et la procédure dans
+[Installation souveraine § Choix du modèle d'embedding](../install/sovereign.md#choix-du-modele-dembedding).
+
+**Résumé express** :
+
+```bash
+# 1. Pull le nouveau modèle dans le conteneur Ollama
+podman exec ollama ollama pull mxbai-embed-large
+
+# 2. Mettre à jour .env
+sed -i 's/^OLLAMA_EMBED_MODEL=.*/OLLAMA_EMBED_MODEL=mxbai-embed-large/' .env
+
+# 3. Restart web pour relire .env (down + up, pas restart — restart
+# ne relit pas env_file dans podman-compose)
+podman-compose down && podman-compose up -d
+
+# 4. Réindexer le corpus existant avec le nouveau modèle
+podman-compose exec web flask reindex-embeddings
+```
+
+!!! warning "Changement de dimension = reindex obligatoire"
+    Passer de `bge-m3` (1024) à `nomic-embed-text` (768) sans réindexer
+    provoque un mismatch `embedding dimension mismatch: collection has
+    1024, query has 768` sur la première requête. Toujours lancer la
+    réindexation **avant** de réouvrir l'application aux utilisateurs.
