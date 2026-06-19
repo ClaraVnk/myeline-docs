@@ -1,9 +1,20 @@
 # Choose your edition
 
-Two on-prem Myeline editions, each calibrated for a specific need.
-Pick yours based on **three criteria**: the regulation that applies
-to your data, your need for autonomy, and the infrastructure you
-have available.
+Myeline comes in two families: the hosted **Cloud** offering
+([myeline.io](https://myeline.io), nothing to install) and the
+**on-prem editions** deployed on your own infrastructure. The rest of
+this page compares the two on-prem editions.
+
+!!! info "Looking for the hosted version?"
+    The [Cloud (SaaS) edition](cloud.md) offers **Free / Pro /
+    Enterprise** plans on myeline.io, no installation. Free is free
+    (with your own API key), Pro includes Mistral at €19.90/mo. See
+    [Cloud edition](cloud.md).
+
+The two **on-prem editions** below are each calibrated for a specific
+need. Pick yours based on **three criteria**: the regulation that
+applies to your data, your need for autonomy, and the infrastructure
+you have available.
 
 ## Comparison table
 
@@ -60,6 +71,14 @@ Full walkthrough:
 [Sovereign-hybrid installation § Cloud connectors](../install/sovereign-hybrid.md#cloud-storage-connectors).
 
 [Learn more →](sovereign-hybrid.md){ .md-button .md-button--primary }
+
+## What about the Cloud edition?
+
+If you have no self-hosting constraint, the [Cloud (SaaS)
+edition](cloud.md) is the fastest path: free account, cloud
+connectors, RAG search, no server to manage. The Cloud Enterprise
+plan overlaps on-prem needs (isolation, OIDC SSO, audit) — we point
+you to the right edition depending on your sovereignty requirements.
 
 ## Migrating between editions
 

@@ -1,9 +1,20 @@
 # Choisir son édition
 
-Deux éditions on-prem de Myeline, chacune calibrée pour un besoin
-spécifique. Choisissez selon **trois critères** : la réglementation
-qui s'applique à vos données, votre besoin d'autonomie, et
-l'infrastructure dont vous disposez.
+Myeline existe en deux familles : l'offre **Cloud** hébergée
+([myeline.io](https://myeline.io), rien à installer) et les **éditions
+on-prem** déployées sur votre propre infrastructure. Le reste de cette
+page compare les deux éditions on-prem.
+
+!!! info "Vous cherchez la version hébergée ?"
+    L'[édition Cloud (SaaS)](cloud.md) propose des formules **Free /
+    Pro / Enterprise** sur myeline.io, sans installation. Free est
+    gratuit (avec votre propre clé API), Pro inclut Mistral à
+    19,90 €/mois. Voir [Édition Cloud](cloud.md).
+
+Les deux **éditions on-prem** ci-dessous sont chacune calibrées pour
+un besoin spécifique. Choisissez selon **trois critères** : la
+réglementation qui s'applique à vos données, votre besoin d'autonomie,
+et l'infrastructure dont vous disposez.
 
 ## Tableau de comparaison
 
@@ -60,6 +71,15 @@ Voir le walkthrough complet :
 [Installation souverain-hybride § Connecteurs cloud](../install/sovereign-hybrid.md#connecteurs-de-stockage-cloud).
 
 [En savoir plus →](sovereign-hybrid.md){ .md-button .md-button--primary }
+
+## Et l'édition Cloud ?
+
+Si vous n'avez pas de contrainte de self-hosting, l'[édition Cloud
+(SaaS)](cloud.md) est le chemin le plus rapide : compte gratuit,
+connecteurs cloud, recherche RAG, sans serveur à gérer. L'offre
+Enterprise du Cloud recoupe les besoins on-prem (isolation, OIDC SSO,
+audit) — nous orientons vers la bonne édition selon vos exigences de
+souveraineté.
 
 ## Migration entre éditions
 

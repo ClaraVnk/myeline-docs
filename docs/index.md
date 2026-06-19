@@ -8,9 +8,16 @@ local** (Ollama + bge-m3) ; la synthèse utilise un LLM local (Ollama)
 ou une API externe (Mistral / Anthropic / OpenAI / Gemini) selon
 votre édition.
 
-Cette documentation couvre les **deux éditions on-prem** que nous
-livrons clé en main aux organisations : **Souverain** (air-gap) et
-**Souverain-hybride** (BYOK).
+Myeline existe en deux familles : l'offre **Cloud** hébergée sur
+[myeline.io](https://myeline.io) (Free / Pro / Enterprise, rien à
+installer) et les **deux éditions on-prem** livrées clé en main aux
+organisations — **Souverain** (air-gap) et **Souverain-hybride**
+(BYOK).
+
+!!! tip "Vous utilisez la version hébergée (myeline.io) ?"
+    Cette doc est surtout orientée on-prem. Pour le SaaS, commencez
+    par l'[édition Cloud (Free / Pro / Enterprise)](editions/cloud.md)
+    et le guide [Obtenir une clé API gratuite en 2 minutes](usage/get-api-key.md).
 
 ---
 
@@ -38,6 +45,16 @@ livrons clé en main aux organisations : **Souverain** (air-gap) et
     et activez les connecteurs cloud avec vos propres apps OAuth.
 
     [:octicons-arrow-right-24: En savoir plus](editions/sovereign-hybrid.md)
+
+-   :material-cloud:{ .lg .middle } **Cloud (SaaS)**
+
+    ---
+
+    Hébergé sur myeline.io (UE / France), rien à installer. **Free**
+    gratuit avec votre clé API, **Pro** à 19,90 €/mois avec Mistral
+    inclus, **Enterprise** sur devis.
+
+    [:octicons-arrow-right-24: En savoir plus](editions/cloud.md)
 
 </div>
 

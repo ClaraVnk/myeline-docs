@@ -7,9 +7,17 @@ queryable in natural language via RAG. Embedding is **always local**
 (Ollama + bge-m3); synthesis uses a local LLM (Ollama) or an external
 API (Mistral / Anthropic / OpenAI / Gemini) depending on your edition.
 
-This documentation covers the **two on-prem editions** we deliver
-turnkey to organisations: **Sovereign** (air-gap) and
-**Sovereign-hybrid** (BYOK).
+Myeline comes in two families: the hosted **Cloud** offering on
+[myeline.io](https://myeline.io) (Free / Pro / Enterprise, nothing to
+install) and the **two on-prem editions** delivered turnkey to
+organisations — **Sovereign** (air-gap) and **Sovereign-hybrid**
+(BYOK).
+
+!!! tip "Using the hosted version (myeline.io)?"
+    This documentation is mostly on-prem-oriented. For the SaaS, start
+    with the [Cloud edition (Free / Pro / Enterprise)](editions/cloud.md)
+    and the [Get a free AI API key in 2 minutes](usage/get-api-key.md)
+    guide.
 
 ---
 
@@ -37,6 +45,16 @@ turnkey to organisations: **Sovereign** (air-gap) and
     and enable cloud connectors with your own OAuth apps.
 
     [:octicons-arrow-right-24: Learn more](editions/sovereign-hybrid.md)
+
+-   :material-cloud:{ .lg .middle } **Cloud (SaaS)**
+
+    ---
+
+    Hosted on myeline.io (EU / France), nothing to install. **Free**
+    is free with your own API key, **Pro** at €19.90/mo with Mistral
+    included, **Enterprise** on quote.
+
+    [:octicons-arrow-right-24: Learn more](editions/cloud.md)
 
 </div>
 

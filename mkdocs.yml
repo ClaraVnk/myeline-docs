@@ -116,6 +116,7 @@ plugins:
           nav_translations:
             "Accueil": "Home"
             "Choisir son édition": "Choose your edition"
+            "Cloud (SaaS)": "Cloud (SaaS)"
             "Souverain (air-gap)": "Sovereign (air-gap)"
             "Souverain-hybride (BYOK)": "Sovereign-hybrid (BYOK)"
             "Installation": "Installation"
@@ -136,6 +137,7 @@ plugins:
             "Journal d'audit": "Audit log"
             "Connecteurs cloud": "Cloud connectors"
             "Utilisation": "Usage"
+            "Obtenir une clé API": "Get an API key"
             "Bibliothèque": "Library"
             "Recherche RAG": "RAG search"
             "Conversations multi-tours": "Multi-turn conversations"
@@ -153,6 +155,7 @@ nav:
   - Accueil: index.md
   - Choisir son édition:
       - editions/index.md
+      - Cloud (SaaS): editions/cloud.md
       - Souverain (air-gap): editions/sovereign.md
       - Souverain-hybride (BYOK): editions/sovereign-hybrid.md
   - Installation:
@@ -177,6 +180,7 @@ nav:
       - Connecteurs cloud: admin/cloud-connectors.md
   - Utilisation:
       - usage/index.md
+      - Obtenir une clé API: usage/get-api-key.md
       - Bibliothèque: usage/upload-documents.md
       - Recherche RAG: usage/rag-search.md
       - Conversations multi-tours: usage/conversations.md
