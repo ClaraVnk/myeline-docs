@@ -37,11 +37,12 @@ the isolated version for organisations.
 | **OIDC SSO**                     | ❌                                      | ❌                                       | ✅                                 |
 | **Audit log**                    | ❌                                      | ❌                                       | ✅                                 |
 | **SLA**                          | Best-effort                             | Best-effort                              | Custom SLA                         |
-| **Pricing**                      | €0 (you pay your AI provider)           | €19.90/mo (yearly −20%)                  | On quote                           |
+| **Pricing**                      | €0 (you pay your AI provider)           | €19.90/mo                  | On quote                           |
 
-!!! note "No 15-day trial"
-    The former 15-day trial has been removed. **Free is the trial**:
-    use the platform for free, indefinitely, with your own API key.
+!!! tip "🎁 Free Pro trial — 15 days"
+    The **Pro** plan includes a **15-day free trial** (card required, no
+    charge until day 15, cancel anytime). And the **Free** edition stays
+    free forever, with your own API key.
 
 ## Free — free, with your own key (BYOK)
 

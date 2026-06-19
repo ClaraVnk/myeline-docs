@@ -38,12 +38,12 @@ limites ; **Enterprise** est la version isolée pour les organisations.
 | **OIDC SSO**                     | ❌                                     | ❌                                      | ✅                                 |
 | **Journal d'audit**              | ❌                                     | ❌                                      | ✅                                 |
 | **SLA**                          | Best-effort                            | Best-effort                             | SLA sur mesure                     |
-| **Tarif**                        | 0 € (vous payez votre provider IA)     | 19,90 €/mois (annuel −20 %)             | Sur devis                          |
+| **Tarif**                        | 0 € (vous payez votre provider IA)     | 19,90 €/mois             | Sur devis                          |
 
-!!! note "Pas d'essai 15 jours"
-    L'ancienne période d'essai de 15 jours a été supprimée. **Free est
-    l'essai** : utilisez la plateforme gratuitement, indéfiniment, avec
-    votre propre clé API.
+!!! tip "🎁 Essai Pro gratuit — 15 jours"
+    L'offre **Pro** inclut **15 jours d'essai gratuit** (carte requise,
+    aucun débit avant J+15, annulable à tout moment). Et l'édition
+    **Free** reste gratuite indéfiniment, avec votre propre clé API.
 
 ## Free — gratuit, avec votre clé (BYOK)
 
