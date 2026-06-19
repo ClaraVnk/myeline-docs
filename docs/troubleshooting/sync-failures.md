@@ -148,13 +148,15 @@ podman exec myeline-worker rq requeue --queue myeline --all
 
 Vérifier ensuite l'état Ollama (voir [Problèmes Ollama](ollama-issues.md)).
 
-## Standard tier — limites
+## Free tier — limites
 
-Les comptes / licences **Standard** ont des limites strictes :
+Les comptes **Free** ont des limites strictes :
 
-- **1 seule** connexion cloud active.
 - **1 sync par 24 h**, peu importe la cadence du cron.
+- Bibliothèque plafonnée à **500 documents**.
+- Sources RSS/web personnalisées plafonnées à **50 sources**, **100
+  articles par source**.
 
 Le banner de progression `/user/cloud` affiche explicitement le
-prochain créneau autorisé. Aucun moyen de bypasser sans upgrade
-de plan / licence.
+prochain créneau autorisé. Aucun moyen de bypasser sans passer au
+plan **Pro**.

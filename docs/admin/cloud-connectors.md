@@ -66,12 +66,11 @@ utilisateurs.
 Cron `check_cloud_sync` (toutes les 4 heures), avec **plancher par
 licence** (depuis `app/cron/check_cloud_sync.py`) :
 
-| Licence       | Intervalle minimum entre 2 syncs |
+| Tier          | Intervalle minimum entre 2 syncs |
 |---------------|----------------------------------|
-| Standard      | 24 h (1 fois par jour)           |
+| Free          | 24 h (1 fois par jour)           |
 | Pro           | 4 h                              |
-| Team          | 1 h                              |
-| Enterprise    | 15 min                           |
+| Enterprise    | Sur mesure                       |
 
 Le owner peut déclencher une sync à la demande depuis
 `/user/cloud` (limité à 1 fois/heure quel que soit le tier).

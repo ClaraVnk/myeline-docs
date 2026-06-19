@@ -62,12 +62,11 @@ the flow — myeline.io's OAuth app cannot serve your users.
 `check_cloud_sync` cron (every 4 hours), with a **per-licence floor**
 (from `app/cron/check_cloud_sync.py`):
 
-| Licence       | Minimum interval between two syncs |
+| Tier          | Minimum interval between two syncs |
 |---------------|------------------------------------|
-| Standard      | 24 h (once per day)                |
+| Free          | 24 h (once per day)                |
 | Pro           | 4 h                                |
-| Team          | 1 h                                |
-| Enterprise    | 15 min                             |
+| Enterprise    | Custom                             |
 
 The owner can trigger an on-demand sync from `/user/cloud` (capped
 at 1/h regardless of tier).

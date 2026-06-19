@@ -144,12 +144,14 @@ podman exec myeline-worker rq requeue --queue myeline --all
 
 Then check Ollama state (see [Ollama issues](ollama-issues.md)).
 
-## Standard tier — limits
+## Free tier — limits
 
-**Standard**-tier accounts / licences have strict limits:
+**Free**-tier accounts have strict limits:
 
-- **One** active cloud connection only.
 - **One sync per 24 h**, regardless of cron cadence.
+- Library capped at **500 documents**.
+- Custom RSS/web sources capped at **50 sources**, **100 articles
+  per source**.
 
 The `/user/cloud` progress banner explicitly shows the next allowed
-slot. No way to bypass without a plan / licence upgrade.
+slot. No way to bypass without upgrading to the **Pro** plan.
