@@ -6,8 +6,11 @@ You create an account, connect your drives and sources, and query
 everything in natural language via RAG.
 
 The platform is **hosted in Europe (France)**, GDPR-compliant.
-Embedding runs **locally on the platform** (never delegated to a third
-party) and the included EU LLM is **Mistral**.
+Embedding goes through the **Mistral AI embedding API** (hosted in
+EU / France, no training on API data): with the **included platform
+key** on Pro, with **your own key** on Free. The included EU LLM for
+synthesis is **Mistral**. *(Local Ollama + bge-m3 embedding only
+applies to the sovereign on-prem editions.)*
 
 !!! info "Cloud vs on-prem"
     This page covers the **hosted** offering (Free / Pro / Enterprise).
@@ -24,8 +27,9 @@ the isolated version for organisations.
 | Criterion                        | Free                                    | Pro — €19.90/mo                          | Enterprise                         |
 |----------------------------------|-----------------------------------------|------------------------------------------|------------------------------------|
 | **Hosting**                      | Myeline Cloud (EU / France)             | Myeline Cloud (EU / France)              | Dedicated isolated stack           |
-| **AI synthesis**                 | **BYOK required** (your Anthropic / OpenAI / Gemini / Mistral key) | **Mistral included** (BYOK to override) | Mistral included + BYOK            |
-| **Embedding**                    | Local on platform                       | Local on platform                        | Local on platform                  |
+| **AI synthesis**                 | **BYOK required** (your Mistral / OpenAI / Claude / Gemini key) | **Mistral included** (BYOK to override) | Mistral included + BYOK            |
+| **Embedding (indexing)**         | **Your own key** (Mistral or OpenAI — Claude/Gemini can't index) | **Mistral included** | Mistral included                  |
+| **Augmented retrieval** (HyDE, multi-query, reranking) | ❌                | ✅                                       | ✅                                 |
 | **Cloud connectors**             | All (Google Drive, OneDrive, Dropbox, kDrive…) | All                              | All                                |
 | **Personal library**             | Up to **500 documents**                 | **Unlimited**                            | Unlimited                          |
 | **Custom RSS / web sources**     | **50 sources**, **100 articles/source** | **Unlimited**                            | Unlimited                          |
@@ -47,13 +51,28 @@ the isolated version for organisations.
 ## Free — free, with your own key (BYOK)
 
 The Free edition is **free with no time limit**. The only requirement:
-you bring **your own AI API key** (BYOK) among Anthropic Claude,
-OpenAI, Google Gemini or Mistral. Without a key, RAG search can't
-produce an AI synthesis — indexing and raw search still work, but the
-synthesised answer needs a valid key.
+you bring **your own AI API key** (BYOK), which powers **both indexing
+(embeddings) AND answer synthesis**. Free runs **entirely on your key**
+— Myeline spends **€0 in API** on your behalf.
 
-Several providers offer a **free tier** (Gemini, Mistral), which makes
-Free genuinely usable at no cost. See the guide
+Since everything runs on your key, the provider choice matters:
+
+- a single **Mistral** or **OpenAI** key covers **both** (indexing +
+  answers) — these providers expose an embedding API;
+- a **Claude** or **Gemini** key can **answer** but **cannot index**
+  (no embedding API) — avoid it as your only key on Free.
+
+**No key = no access**: a Free user must configure a valid key before
+reaching the dashboard.
+
+!!! info "Augmented retrieval: a Pro perk"
+    The **augmented retrieval** passes (HyDE, multi-query, reranking,
+    contextual retrieval) call the platform LLM and are therefore
+    **off on Free** — they're **included on Pro** as a value-add.
+
+Several providers offer a **free tier** (Mistral, Gemini), which makes
+Free genuinely usable at no cost — prefer Mistral to cover indexing
+**and** answers with a single key. See the guide
 [Get a free AI API key in 2 minutes](../usage/get-api-key.md).
 
 Included in Free:
@@ -64,16 +83,20 @@ Included in Free:
   **100 articles per source**
 - **Monthly digest**
 - **Cloud sync every 24 h** (fixed cadence)
-- **RAG search** running on your key
+- **RAG search**: both indexing **and** synthesis run on your key
 
 ## Pro — €19.90/mo, Mistral included
 
 The Pro edition (**€19.90/mo**, or **−20% on yearly billing**)
-includes **Mistral AI**: no key to manage, AI synthesis works from
-sign-up. You can still **bring your own key** (BYOK) to override the
-provider if you prefer Claude, GPT or Gemini.
+includes **Mistral AI** (France, EU-hosted, no training on API data)
+for **both indexing (embeddings) AND synthesis**: no key to manage,
+everything works from sign-up. You can still **bring your own key**
+(BYOK) to override the synthesis provider if you prefer Claude, GPT or
+Gemini.
 
-Pro takes everything in Free **with no limits**:
+Pro takes everything in Free **with no limits**, and adds **augmented
+retrieval** (HyDE, multi-query, reranking, contextual retrieval),
+which is off on Free:
 
 - **Unlimited documents, sources and articles**
 - **All digest frequencies** (daily, weekly, monthly…)

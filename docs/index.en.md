@@ -3,9 +3,12 @@
 **Myeline** is an intelligence platform for your data, deployable
 directly on **your infrastructure**. It indexes RSS feeds, web
 scrapers, personal documents and cloud storage then makes everything
-queryable in natural language via RAG. Embedding is **always local**
-(Ollama + bge-m3); synthesis uses a local LLM (Ollama) or an external
-API (Mistral / Anthropic / OpenAI / Gemini) depending on your edition.
+queryable in natural language via RAG. Depending on the edition,
+embedding and synthesis run **locally** (on-prem: Ollama + bge-m3) or
+through an **external API**: on the hosted Cloud, embedding goes
+through the **Mistral API** (EU / France) — included key on Pro, your
+own key on Free — and synthesis uses included Mistral (Pro) or your
+BYOK key (Free). In sovereign on-prem, everything stays local.
 
 Myeline comes in two families: the hosted **Cloud** offering on
 [myeline.io](https://myeline.io) (Free / Pro / Enterprise, nothing to

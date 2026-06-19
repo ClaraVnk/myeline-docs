@@ -9,7 +9,7 @@ des sources**.
 ```
 Question utilisateur
   ↓
-Embedding bge-m3 (Ollama local)
+Embedding (on-prem : bge-m3 Ollama local — Cloud : API Mistral UE)
   ↓
 ChromaDB hybrid search (RRF + MMR sur les scopes sélectionnés)
   ↓
@@ -22,14 +22,22 @@ Synthèse (Ollama local OU API externe BYOK selon édition)
 Réponse + citations [1], [2], [3]…
 ```
 
-L'**embedding est toujours local**, peu importe l'édition. La
-synthèse :
+L'**embedding dépend de l'édition** :
+
+- En **on-prem souverain / hybride** : toujours **local** (bge-m3 via
+  Ollama, chez vous).
+- Sur le **Cloud hébergé** : via l'**API d'embedding Mistral** (UE /
+  France) — clé plateforme incluse en Pro, **votre propre clé** en Free
+  (une clé Mistral ou OpenAI ; Claude/Gemini ne peuvent pas indexer).
+
+La synthèse :
 
 - En souverain pur : Ollama local (Mistral-Nemo, Llama 3.1, Mixtral
   selon ce que vous hostez)
 - En souverain-hybride : Ollama local par défaut, ou bascule par
   organisation vers Mistral / Claude / OpenAI / Gemini avec votre
   clé (BYOK)
+- Sur le Cloud : Mistral inclus (Pro) ou votre clé BYOK (Free)
 
 ## Citations
 

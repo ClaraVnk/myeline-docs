@@ -6,8 +6,11 @@ installer**. Vous créez un compte, vous connectez vos drives et vos
 sources, et vous interrogez l'ensemble en langage naturel via RAG.
 
 La plateforme est **hébergée en Europe (France)**, conforme RGPD.
-L'embedding tourne **localement sur la plateforme** (jamais délégué à
-un tiers) et le LLM EU inclus est **Mistral**.
+L'embedding passe par l'**API d'embedding Mistral AI** (hébergée en
+UE / France, pas d'entraînement sur les données API) : avec la **clé
+plateforme incluse** en Pro, avec **votre propre clé** en Free. Le LLM
+EU inclus pour la synthèse est **Mistral**. *(L'embedding local
+Ollama + bge-m3 ne concerne que les éditions on-prem souveraines.)*
 
 !!! info "Cloud vs on-prem"
     Cette page couvre l'offre **hébergée** (Free / Pro / Enterprise).
@@ -25,8 +28,9 @@ limites ; **Enterprise** est la version isolée pour les organisations.
 | Critère                          | Free (gratuit)                         | Pro — 19,90 €/mois                      | Enterprise                         |
 |----------------------------------|----------------------------------------|-----------------------------------------|------------------------------------|
 | **Hébergement**                  | Cloud Myeline (UE / France)            | Cloud Myeline (UE / France)             | Stack dédiée et isolée             |
-| **Synthèse IA**                  | **BYOK requis** (votre clé Anthropic / OpenAI / Gemini / Mistral) | **Mistral inclus** (BYOK possible pour surcharger) | Mistral inclus + BYOK              |
-| **Embedding**                    | Local plateforme                       | Local plateforme                        | Local plateforme                   |
+| **Synthèse IA**                  | **BYOK requis** (votre clé Mistral / OpenAI / Claude / Gemini) | **Mistral inclus** (BYOK possible pour surcharger) | Mistral inclus + BYOK              |
+| **Embedding (indexation)**       | **Votre clé** (Mistral ou OpenAI — Claude/Gemini ne peuvent pas indexer) | **Mistral inclus** | Mistral inclus                     |
+| **Recherche augmentée** (HyDE, multi-requêtes, reranking) | ❌            | ✅                                      | ✅                                 |
 | **Connecteurs cloud**            | Tous (Google Drive, OneDrive, Dropbox, kDrive…) | Tous                          | Tous                               |
 | **Bibliothèque personnelle**     | Jusqu'à **500 documents**              | **Illimité**                            | Illimité                           |
 | **Sources RSS / web custom**     | **50 sources**, **100 articles/source** | **Illimité**                           | Illimité                           |
@@ -48,15 +52,31 @@ limites ; **Enterprise** est la version isolée pour les organisations.
 ## Free — gratuit, avec votre clé (BYOK)
 
 L'édition Free est **gratuite et sans limite de durée**. La seule
-contrainte : vous apportez **votre propre clé API IA** (BYOK) parmi
-Anthropic Claude, OpenAI, Google Gemini ou Mistral. Sans clé, la
-recherche RAG ne peut pas produire de synthèse IA — l'indexation et la
-recherche brute fonctionnent, mais la réponse synthétisée nécessite
-une clé valide.
+contrainte : vous apportez **votre propre clé API IA** (BYOK), qui sert
+**à la fois à l'indexation (embeddings) ET à la synthèse des
+réponses**. Free tourne **entièrement sur votre clé** — Myeline ne
+dépense **0 € d'API** pour vous.
 
-Plusieurs providers proposent un **niveau gratuit** (Gemini, Mistral),
-ce qui rend Free réellement utilisable sans aucune dépense. Voir le
-guide [Obtenir une clé API gratuite en 2 minutes](../usage/get-api-key.md).
+Tout passe par votre clé, donc le choix du provider compte :
+
+- une seule clé **Mistral** ou **OpenAI** couvre **les deux**
+  (indexation + réponses) — ces providers exposent une API d'embedding ;
+- une clé **Claude** ou **Gemini** peut **répondre** mais **ne peut pas
+  indexer** (pas d'API d'embedding) — à éviter en clé unique sur Free.
+
+**Sans clé, pas d'accès** : un utilisateur Free doit configurer une clé
+valide avant d'atteindre le tableau de bord.
+
+!!! info "Recherche augmentée : un plus de Pro"
+    Les passes de **recherche augmentée** (HyDE, multi-requêtes,
+    reranking, contextual retrieval) appellent le LLM plateforme et sont
+    donc **désactivées en Free** — elles sont **incluses en Pro** comme
+    valeur ajoutée.
+
+Plusieurs providers proposent un **niveau gratuit** (Mistral, Gemini),
+ce qui rend Free réellement utilisable sans aucune dépense — privilégiez
+Mistral pour couvrir indexation **et** réponses avec une seule clé. Voir
+le guide [Obtenir une clé API gratuite en 2 minutes](../usage/get-api-key.md).
 
 Inclus dans Free :
 
@@ -67,17 +87,20 @@ Inclus dans Free :
   **100 articles par source**
 - **Digest mensuel**
 - **Sync cloud toutes les 24 h** (fréquence fixe)
-- **Recherche RAG** exécutée sur votre clé
+- **Recherche RAG** : indexation **et** synthèse exécutées sur votre clé
 
 ## Pro — 19,90 €/mois, Mistral inclus
 
 L'édition Pro (**19,90 €/mois**, ou **−20 % en facturation annuelle**)
-inclut **Mistral AI** : aucune clé à gérer, la synthèse IA fonctionne
-dès l'inscription. Vous pouvez toujours **apporter votre propre clé**
-(BYOK) pour surcharger le provider si vous préférez Claude, GPT ou
-Gemini.
+inclut **Mistral AI** (France, hébergé UE, pas d'entraînement sur les
+données API) pour **l'indexation (embeddings) ET la synthèse** : aucune
+clé à gérer, tout fonctionne dès l'inscription. Vous pouvez toujours
+**apporter votre propre clé** (BYOK) pour surcharger le provider de
+synthèse si vous préférez Claude, GPT ou Gemini.
 
-Pro reprend tout Free **sans aucune limite** :
+Pro reprend tout Free **sans aucune limite**, et ajoute la **recherche
+augmentée** (HyDE, multi-requêtes, reranking, contextual retrieval),
+désactivée en Free :
 
 - **Documents, sources et articles illimités**
 - **Toutes les fréquences de digest** (quotidien, hebdo, mensuel…)

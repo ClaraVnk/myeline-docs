@@ -76,7 +76,7 @@ Nouveau fichier détecté (sync cloud) ou article récupéré (scraper)
   → Détection MIME (magic bytes)
   → Extraction texte
   → Découpage en chunks (~500 tokens, overlap 50)
-  → Embedding bge-m3 (Ollama local)
+  → Embedding (on-prem : bge-m3 Ollama local — Cloud : API Mistral UE)
   → Insertion ChromaDB dans la collection cible
   → Document interrogeable en RAG
 ```

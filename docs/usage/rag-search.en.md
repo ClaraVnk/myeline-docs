@@ -8,7 +8,7 @@ get a synthesised answer **with source citations**.
 ```
 User question
   ↓
-bge-m3 embedding (local Ollama)
+Embedding (on-prem: bge-m3 local Ollama — Cloud: Mistral EU API)
   ↓
 ChromaDB hybrid search (RRF + MMR over the selected scopes)
   ↓
@@ -21,12 +21,21 @@ Synthesis (local Ollama OR external BYOK API depending on edition)
 Answer + citations [1], [2], [3]…
 ```
 
-**Embedding is always local**, regardless of edition. Synthesis:
+**Embedding depends on the edition**:
+
+- In **sovereign / hybrid on-prem**: always **local** (bge-m3 via
+  Ollama, on your infra).
+- On the **hosted Cloud**: through the **Mistral embedding API** (EU /
+  France) — included platform key on Pro, **your own key** on Free (a
+  Mistral or OpenAI key; Claude/Gemini can't index).
+
+Synthesis:
 
 - In pure sovereign: local Ollama (Mistral-Nemo, Llama 3.1, Mixtral
   depending on what you host)
 - In sovereign-hybrid: local Ollama by default, or per-organisation
   switch to Mistral / Claude / OpenAI / Gemini with your key (BYOK)
+- On the Cloud: included Mistral (Pro) or your BYOK key (Free)
 
 ## Citations
 
