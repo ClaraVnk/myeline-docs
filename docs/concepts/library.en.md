@@ -30,7 +30,7 @@ Connect your drive from `/user/cloud` (or `/org/<slug>/cloud` on
 the organisation side):
 
 - Google Drive, OneDrive, Dropbox, kDrive (sovereign-hybrid only,
-  see [Cloud connectors](../admin/cloud-connectors.md))
+  see [Cloud connectors](cloud-connectors.md))
 - S3 / S3-compatible (all editions)
 - WebDAV — Nextcloud, ownCloud (all editions)
 - Zotero (sovereign-hybrid only, indexes bibliographic metadata)

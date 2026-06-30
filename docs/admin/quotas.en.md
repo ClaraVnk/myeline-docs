@@ -1,5 +1,9 @@
 # Quotas and plans
 
+!!! info "Edition"
+    **On-premise only.** The **Cloud** (Free / Pro) has its own limits
+    (see the [Cloud edition](../editions/cloud.md)).
+
 In on-prem editions (sovereign and sovereign-hybrid), the **licence
 covers the operator** — there is no notion of an internal user plan.
 All features are enabled: multi-turn, conversations, alerts,

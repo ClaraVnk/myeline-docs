@@ -1,5 +1,9 @@
 # Pré-requis serveur
 
+!!! info "Édition"
+    **On-premise (sur devis).** **Community** : voir le dépôt GitHub.
+    **Cloud** : rien à installer.
+
 Sizing recommandé pour faire tourner Myeline avec une expérience
 interactive (réponse RAG sous 5 s perçus).
 

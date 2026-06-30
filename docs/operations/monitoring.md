@@ -74,9 +74,6 @@ myeline_conversations_active
 # Quotas / audit
 myeline_quota_usage{user_id,metric}
 myeline_audit_events_total{action}
-
-# Provisioning Enterprise
-myeline_enterprise_stacks{status}
 ```
 
 Pas d'auth par défaut sur `/metrics` — restreindre via le

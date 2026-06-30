@@ -317,8 +317,8 @@ sudo iptables -L OUTPUT -v
 
 ## Étapes suivantes
 
-- [Première connexion admin](first-login.md) — configurer l'org, les
-  utilisateurs, optionnellement OIDC SSO
+- [Première connexion admin](first-login.md) — configurer l'org et
+  les utilisateurs
 - [Sauvegarde et restauration](../operations/backup-restore.md) —
   vérifier que la cron `backup_databases` a tourné
 - [Renouvellement de licence](../operations/license-renewal.md) —

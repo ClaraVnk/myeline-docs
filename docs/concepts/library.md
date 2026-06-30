@@ -31,7 +31,7 @@ Connectez votre drive depuis `/user/cloud` (ou `/org/<slug>/cloud`
 côté organisation) :
 
 - Google Drive, OneDrive, Dropbox, kDrive (souverain-hybride
-  uniquement, voir [Connecteurs cloud](../admin/cloud-connectors.md))
+  uniquement, voir [Connecteurs cloud](cloud-connectors.md))
 - S3 / S3-compatible (toutes éditions)
 - WebDAV — Nextcloud, ownCloud (toutes éditions)
 - Zotero (souverain-hybride uniquement, indexe les métadonnées

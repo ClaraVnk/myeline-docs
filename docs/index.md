@@ -10,16 +10,27 @@ passe par l'**API Mistral** (UE / France) — clé incluse en Pro, votre
 propre clé en Free — et la synthèse utilise Mistral inclus (Pro) ou
 votre clé BYOK (Free). En on-prem souverain, tout reste local.
 
-Myeline existe en deux familles : l'offre **Cloud** hébergée sur
-[myeline.io](https://myeline.io) (Free / Pro, rien à installer) et
-l'offre **On-premise / Souverain** livrée clé en main aux
-organisations — une installation **sur-mesure, sur devis** (air-gap ou
-BYOK).
+Myeline se décline en deux grandes familles d'édition, plus une offre
+sur-mesure :
+
+- **[Community / Self-host (OSS)](community/index.md)** — l'édition
+  **open source (AGPL-3.0)**, mono-utilisateur, à auto-héberger
+  gratuitement (BYOK + Ollama local).
+- **[Cloud / Hébergé](cloud/index.md)** — la version SaaS sur
+  [myeline.io](https://myeline.io) : **Free** (votre clé) ou **Pro**
+  à 7,90 €/mois (Mistral inclus, essai 15 jours), rien à installer.
+- **[On-premise / Souverain](editions/index.md)** — déploiement sur
+  **votre infrastructure** (air-gap ou BYOK), multi-tenant : une
+  installation **sur-mesure, sur devis**.
+
+L'usage des fonctionnalités (recherche RAG, bibliothèque, connecteurs,
+conversations, veille) est **commun à toutes les éditions** et décrit
+dans les [Concepts (toutes éditions)](concepts/index.md).
 
 !!! tip "Vous utilisez la version hébergée (myeline.io) ?"
-    Cette doc est surtout orientée on-prem. Pour le SaaS, commencez
-    par l'[édition Cloud (Free / Pro)](editions/cloud.md)
-    et le guide [Obtenir une clé API gratuite en 2 minutes](usage/get-api-key.md).
+    Commencez par le [Cloud / Hébergé](cloud/index.md), les
+    [Premiers pas](cloud/getting-started.md) et le guide
+    [Obtenir une clé API gratuite en 2 minutes](concepts/get-api-key.md).
 
 ---
 
@@ -92,7 +103,7 @@ BYOK).
   upgrade, supervision, renouvellement de licence.
 - :material-account-cog: **[Administration](admin/index.md)** : gérer
   organisations, quotas, audit log.
-- :material-magnify: **[Recherche RAG côté utilisateur](usage/rag-search.md)** :
+- :material-magnify: **[Recherche RAG côté utilisateur](concepts/rag-search.md)** :
   comment poser des questions, raffiner les résultats, conversations.
 - :material-shield-check: **[Conformité RGPD](compliance/gdpr.md)** :
   registre des sous-traitants, DPA, exercice des droits.

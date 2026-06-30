@@ -9,7 +9,7 @@ LLM provider configurable per org (in sovereign-hybrid).
 | Role    | Can...                                                                  |
 |---------|--------------------------------------------------------------------------|
 | Owner   | everything (including deleting the org, transferring ownership)          |
-| Admin   | manage members, OIDC, quotas, re-index the collection                    |
+| Admin   | manage members and quotas, re-index the collection                       |
 | Member  | upload documents, run searches, create conversations                     |
 
 A user can belong to **several organisations**. The org selector at
@@ -43,9 +43,9 @@ From `/org/<slug>/members`, the owner or an admin can:
 
 See [GDPR compliance](../compliance/gdpr.md) for details.
 
-## Per-org AI providers (Enterprise / Sovereign-hybrid)
+## Per-org AI providers (Sovereign-hybrid only)
 
-From `/org/<slug>/admin`, the owner and admins of an Enterprise org
+From `/org/<slug>/admin`, the owner and admins of an org
 can configure two independent providers:
 
 - **LLM** (answer synthesis): "Fournisseur IA" card —

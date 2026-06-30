@@ -1,5 +1,12 @@
 # Administration
 
+!!! info "On-premise / Souverain — sur devis"
+    L'administration multi-tenant décrite ici concerne les
+    déploiements **on-premise** (installations **sur-mesure, sur
+    devis**). Sur le [Cloud / Hébergé](../cloud/index.md), la gestion
+    d'équipe se fait depuis votre tableau de bord (facturation par
+    siège), sans interface d'admin serveur.
+
 L'interface d'administration de Myeline est accessible à
 `https://<votre-domaine>/admin` pour les comptes flaggés `is_admin`.
 
@@ -16,14 +23,14 @@ Le dashboard `/admin` regroupe :
 - **[Organisations et utilisateurs](organizations.md)** — créer une
   organisation, inviter des membres, gérer les rôles owner / admin /
   member, supprimer un compte (RGPD).
-- **[SSO entreprise (OIDC)](oidc-sso.md)** — brancher Azure AD / Okta /
-  Keycloak / Authentik comme IdP pour une organisation.
+- **SSO entreprise** — déployé sur demande pour les installs
+  on-premise — contact hello@myeline.io.
 - **[Quotas et plans](quotas.md)** — limites par plan, alertes 80 % /
   100 %, surcharge admin.
 - **[Journal d'audit](audit-log.md)** — qui a fait quoi, quand,
   archivage off-host des entrées > 180 jours.
-- **[Connecteurs cloud](cloud-connectors.md)** — activation par
-  édition, configuration des credentials BYOC en souverain-hybride.
+- **[Connecteurs cloud](../concepts/cloud-connectors.md)** — activation
+  par édition, configuration des credentials BYOC en souverain-hybride.
 
 ## Bonnes pratiques
 

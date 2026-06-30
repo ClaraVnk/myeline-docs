@@ -1,5 +1,9 @@
 # Licence errors
 
+!!! info "Edition"
+    **On-premise (quote) only.** **Community**: open source, no licence.
+    **Cloud**: billing via Stripe.
+
 The Myeline licence system uses **offline Ed25519 signatures** (no
 network call to validate). Most common errors and their fixes.
 

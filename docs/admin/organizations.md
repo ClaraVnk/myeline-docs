@@ -9,7 +9,7 @@ fournisseur LLM par défaut configurable (en souverain-hybride).
 | Rôle    | Peut...                                                                  |
 |---------|---------------------------------------------------------------------------|
 | Owner   | tout (incluant supprimer l'organisation, transférer le owner)             |
-| Admin   | gérer membres, OIDC, quotas, ré-indexer la collection                     |
+| Admin   | gérer membres et quotas, ré-indexer la collection                         |
 | Member  | uploader des documents, lancer des recherches, créer des conversations    |
 
 Un utilisateur peut appartenir à **plusieurs organisations**. Le
@@ -44,9 +44,9 @@ Depuis `/org/<slug>/members`, le owner ou un admin peut :
 
 Voir [Conformité RGPD](../compliance/gdpr.md) pour le détail.
 
-## Fournisseurs IA par organisation (Enterprise / Sovereign-hybride)
+## Fournisseurs IA par organisation (Sovereign-hybride uniquement)
 
-Depuis `/org/<slug>/admin`, owner et admin d'une org Enterprise peuvent
+Depuis `/org/<slug>/admin`, owner et admin d'une org peuvent
 configurer deux fournisseurs indépendants :
 
 - **LLM** (synthèse des réponses) : carte « Fournisseur IA » —

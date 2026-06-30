@@ -73,7 +73,7 @@ Si vous ne configurez pas Brevo, le mailer reste en log-only
 ── Synthèse IA
 
   Mistral est le provider par défaut (français, hébergé UE,
-  RGPD-compatible). En hybride, chaque organisation Enterprise
+  RGPD-compatible). En hybride, chaque organisation
   pourra basculer vers OpenAI / Anthropic / Gemini avec sa propre
   clé via /admin/orgs (BYOK).
 
@@ -163,10 +163,9 @@ Astuce pour compacter le JSON : `cat downloaded.json | jq -c .`
 
 ### 3.5 Authentication
 
-Le wizard saute la section "connexion sociale" en souverain-hybride
-(voir [SSO entreprise (OIDC)](../admin/oidc-sso.md)). Pour
-l'authentification entreprise, configurez **OIDC SSO** après
-l'install via `/org/<slug>/oidc`.
+Le wizard saute la section "connexion sociale" en souverain-hybride.
+Le SSO entreprise est disponible sur demande (service sur-mesure
+on-premise) — contact hello@myeline.io.
 
 ### 3.6 Reste
 
@@ -219,6 +218,5 @@ curl https://myeline.acme.local/license-info
 ## Étapes suivantes
 
 - [Première connexion admin](first-login.md)
-- [Configurer OIDC entreprise](../admin/oidc-sso.md)
 - [Activer le bon LLM par organisation](../admin/organizations.md)
 - [Sauvegarde off-host](../operations/backup-restore.md)

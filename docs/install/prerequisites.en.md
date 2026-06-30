@@ -1,5 +1,9 @@
 # Server prerequisites
 
+!!! info "Edition"
+    **On-premise (quote).** **Community**: see the GitHub repository.
+    **Cloud**: nothing to install.
+
 Recommended sizing to run Myeline with an interactive experience
 (perceived RAG response under 5 s).
 

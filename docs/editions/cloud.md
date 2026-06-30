@@ -76,7 +76,7 @@ valide avant d'atteindre le tableau de bord.
 Plusieurs providers proposent un **niveau gratuit** (Mistral, Gemini),
 ce qui rend Free réellement utilisable sans aucune dépense — privilégiez
 Mistral pour couvrir indexation **et** réponses avec une seule clé. Voir
-le guide [Obtenir une clé API gratuite en 2 minutes](../usage/get-api-key.md).
+le guide [Obtenir une clé API gratuite en 2 minutes](../concepts/get-api-key.md).
 
 Inclus dans Free :
 
@@ -129,7 +129,7 @@ on en parle ensemble.
 1. **Créez un compte gratuit** sur [myeline.io](https://myeline.io).
 2. **Obtenez une clé API** auprès d'un provider IA (gratuit chez Gemini
    ou Mistral) — voir
-   [Obtenir une clé API gratuite en 2 minutes](../usage/get-api-key.md).
+   [Obtenir une clé API gratuite en 2 minutes](../concepts/get-api-key.md).
 3. **Collez votre clé** dans *Paramètres → Fournisseur IA*.
 4. **Connectez vos drives** et ajoutez vos sources RSS / web.
 5. Pour passer à **Pro**, faites-le depuis votre **tableau de bord**

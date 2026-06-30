@@ -72,7 +72,7 @@ reaching the dashboard.
 Several providers offer a **free tier** (Mistral, Gemini), which makes
 Free genuinely usable at no cost — prefer Mistral to cover indexing
 **and** answers with a single key. See the guide
-[Get a free AI API key in 2 minutes](../usage/get-api-key.md).
+[Get a free AI API key in 2 minutes](../concepts/get-api-key.md).
 
 Included in Free:
 
@@ -121,7 +121,7 @@ with you. There is **no self-service subscription** — let's talk.
 
 1. **Create a free account** at [myeline.io](https://myeline.io).
 2. **Get an API key** from an AI provider (free with Gemini or Mistral)
-   — see [Get a free AI API key in 2 minutes](../usage/get-api-key.md).
+   — see [Get a free AI API key in 2 minutes](../concepts/get-api-key.md).
 3. **Paste your key** in *Settings → AI provider*.
 4. **Connect your drives** and add your RSS / web sources.
 5. To move to **Pro**, do it from your **dashboard** (*Upgrade to Pro*

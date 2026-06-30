@@ -1,5 +1,9 @@
 # Erreurs de licence
 
+!!! info "Édition"
+    **On-premise (sur devis) uniquement.** **Community** : open source,
+    pas de licence. **Cloud** : facturation via Stripe.
+
 Le système de licence Myeline utilise des signatures **Ed25519
 hors-ligne** (pas d'appel réseau pour valider). Les erreurs les plus
 fréquentes et leurs résolutions.

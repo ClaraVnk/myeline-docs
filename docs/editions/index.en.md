@@ -1,24 +1,45 @@
 # Choose your edition
 
-Myeline comes in two families: the hosted **Cloud** offering
-([myeline.io](https://myeline.io), nothing to install) and the
-**on-prem editions** deployed on your own infrastructure. The rest of
-this page compares the two on-prem editions.
+Myeline comes in **three families**, depending on whether you want to
+self-host for free, use the hosted version with nothing to install, or
+deploy a bespoke installation on your own infrastructure.
 
-!!! info "Looking for the hosted version?"
-    The [Cloud (SaaS) edition](cloud.md) offers **Free / Pro** plans on
-    myeline.io, no installation. Free is free (with your own API key),
-    Pro includes Mistral at **€7.90/mo** (15-day trial, monthly
-    billing). See [Cloud edition](cloud.md).
+<div class="grid cards" markdown>
 
-!!! tip "Just want to self-host it for free?"
-    The [**Community / Self-Host** edition](community.md) is the
-    **open-source (AGPL-3.0)**, **single-user** version to install on
-    your own server — multi-LLM BYOK **+ fully local LLM via Ollama**,
-    no licence and no organisation. The code is on
-    [GitHub](https://github.com/ClaraVnk/myeline).
+-   :fontawesome-brands-github:{ .lg .middle } **Community / Self-host (OSS)**
 
-The two **on-prem editions** below are each calibrated for a specific
+    ---
+
+    **Open-source (AGPL-3.0)**, **single-user** edition to self-host
+    for free. Multi-LLM BYOK **+ fully local LLM via Ollama**, no
+    licence and no organisation.
+
+    [:octicons-arrow-right-24: Community / Self-host](../community/index.md)
+
+-   :material-cloud:{ .lg .middle } **Cloud / Hosted**
+
+    ---
+
+    Hosted on [myeline.io](https://myeline.io) (EU / France), nothing
+    to install. **Free** (your key), **Pro** at €7.90/mo with Mistral
+    included (15-day trial), per-seat teams.
+
+    [:octicons-arrow-right-24: Cloud / Hosted](../cloud/index.md)
+
+-   :material-shield-lock:{ .lg .middle } **On-premise / Sovereign (quote-based)**
+
+    ---
+
+    Deployment on **your infrastructure**, multi-tenant, with
+    contractual support. **Sovereign (air-gap)** and **Sovereign-hybrid
+    (BYOK)** variants. **Bespoke, quote-based** installation.
+
+    [:octicons-arrow-right-24: See the variants](sovereign.md)
+
+</div>
+
+The two **on-prem editions** below (Sovereign and Sovereign-hybrid) are
+**bespoke, quote-based** installations, each calibrated for a specific
 need. Pick yours based on **three criteria**: the regulation that
 applies to your data, your need for autonomy, and the infrastructure
 you have available.
@@ -74,7 +95,7 @@ with each provider from your tenant:
 - **OneDrive / Dropbox / Notion**: register your own OAuth apps (BYOC)
 
 Full walkthrough:
-[Sovereign-hybrid installation § Cloud connectors](../install/sovereign-hybrid.md#cloud-storage-connectors).
+[Sovereign-hybrid installation § Cloud connectors](../install/sovereign-hybrid.md#byoc).
 
 [Learn more →](sovereign-hybrid.md){ .md-button .md-button--primary }
 

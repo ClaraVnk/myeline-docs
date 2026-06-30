@@ -1,27 +1,49 @@
 # Choisir son édition
 
-Myeline existe en deux familles : l'offre **Cloud** hébergée
-([myeline.io](https://myeline.io), rien à installer) et les **éditions
-on-prem** déployées sur votre propre infrastructure. Le reste de cette
-page compare les deux éditions on-prem.
+Myeline existe en **trois familles**, selon que vous voulez héberger
+vous-même gratuitement, utiliser la version hébergée sans rien
+installer, ou déployer une installation sur-mesure sur votre propre
+infrastructure.
 
-!!! info "Vous cherchez la version hébergée ?"
-    L'[édition Cloud (SaaS)](cloud.md) propose les formules **Free /
-    Pro** sur myeline.io, sans installation. Free est gratuit (avec
-    votre propre clé API), Pro inclut Mistral à **7,90 €/mois** (essai
-    15 jours, facturation mensuelle). Voir [Édition Cloud](cloud.md).
+<div class="grid cards" markdown>
 
-!!! tip "Vous voulez juste l'auto-héberger gratuitement ?"
-    L'[édition **Community / Self-Host**](community.md) est la version
-    **open source (AGPL-3.0)**, **mono-utilisateur**, à installer sur
-    votre propre serveur — BYOK multi-LLM **+ LLM 100 % local via
-    Ollama**, sans licence ni organisation. Le code est sur
-    [GitHub](https://github.com/ClaraVnk/myeline).
+-   :fontawesome-brands-github:{ .lg .middle } **Community / Self-host (OSS)**
 
-Les deux **éditions on-prem** ci-dessous sont chacune calibrées pour
-un besoin spécifique. Choisissez selon **trois critères** : la
-réglementation qui s'applique à vos données, votre besoin d'autonomie,
-et l'infrastructure dont vous disposez.
+    ---
+
+    Édition **open source (AGPL-3.0)**, **mono-utilisateur**, à
+    auto-héberger gratuitement. Multi-LLM BYOK **+ LLM 100 % local via
+    Ollama**, sans licence ni organisation.
+
+    [:octicons-arrow-right-24: Community / Self-host](../community/index.md)
+
+-   :material-cloud:{ .lg .middle } **Cloud / Hébergé**
+
+    ---
+
+    Hébergé sur [myeline.io](https://myeline.io) (UE / France), rien à
+    installer. **Free** gratuit (votre clé), **Pro** à 7,90 €/mois
+    Mistral inclus (essai 15 jours), équipes par siège.
+
+    [:octicons-arrow-right-24: Cloud / Hébergé](../cloud/index.md)
+
+-   :material-shield-lock:{ .lg .middle } **On-premise / Souverain (sur devis)**
+
+    ---
+
+    Déploiement sur **votre infrastructure**, multi-tenant, avec
+    support contractuel. Variantes **Souverain (air-gap)** et
+    **Souverain-hybride (BYOK)**. Installation **sur-mesure, sur devis**.
+
+    [:octicons-arrow-right-24: Voir les variantes](sovereign.md)
+
+</div>
+
+Les deux **éditions on-prem** ci-dessous (Souverain et
+Souverain-hybride) sont des installations **sur-mesure, sur devis**,
+chacune calibrée pour un besoin spécifique. Choisissez selon **trois
+critères** : la réglementation qui s'applique à vos données, votre
+besoin d'autonomie, et l'infrastructure dont vous disposez.
 
 ## Tableau de comparaison
 
@@ -74,7 +96,7 @@ les credentials chez chaque provider depuis votre tenant :
 - **OneDrive / Dropbox / Notion** : créez vos propres apps OAuth (BYOC)
 
 Voir le walkthrough complet :
-[Installation souverain-hybride § Connecteurs cloud](../install/sovereign-hybrid.md#connecteurs-de-stockage-cloud).
+[Installation souverain-hybride § Connecteurs cloud](../install/sovereign-hybrid.md#byoc).
 
 [En savoir plus →](sovereign-hybrid.md){ .md-button .md-button--primary }
 

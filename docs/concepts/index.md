@@ -1,11 +1,17 @@
-# Utilisation
+# Concepts (toutes éditions)
 
-Cette section couvre l'usage **côté utilisateur final** — les
-fonctionnalités exposées via l'interface web.
+!!! info "Usage commun"
+    Ces concepts sont **communs à toutes les éditions** (Community,
+    Cloud, on-premise) — légères variations selon l'édition. Ils
+    décrivent l'usage **côté utilisateur final**, via l'interface web.
 
-- [Bibliothèque](upload-documents.md) — alimentation perso et org
+- [Obtenir une clé API](get-api-key.md) — créer une clé gratuite
+  (Mistral / Gemini) pour l'indexation et la synthèse.
+- [Bibliothèque](library.md) — alimentation perso et org
   via les connecteurs cloud et les scrapers (pas d'upload manuel),
   formats indexés, pipeline.
+- [Connecteurs cloud](cloud-connectors.md) — Google Drive, OneDrive,
+  Dropbox, kDrive, S3, WebDAV… activation et credentials.
 - [Recherche RAG](rag-search.md) — poser une question, raffiner, citer
   les sources, mode strict.
 - [Conversations multi-tours](conversations.md) — fil de discussion

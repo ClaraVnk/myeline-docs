@@ -13,10 +13,10 @@ external dependency — this is the edition for you.
 [:fontawesome-brands-github: Code on GitHub](https://github.com/ClaraVnk/myeline){ .md-button .md-button--primary }
 [:material-book-open-variant: Self-host guide](https://github.com/ClaraVnk/myeline/blob/main/docs/SELF_HOSTING.md){ .md-button }
 
-!!! info "Community vs hosted / enterprise editions"
+!!! info "Community vs hosted / on-prem editions"
     This page covers the **open-source, single-user** edition.
-    Multi-tenant features (organisations and teams, OIDC SSO, billing,
-    enterprise deployment) are **not** part of this project — they
+    Multi-tenant features (organisations and teams, billing) are
+    **not** part of this project — they
     belong to the [Cloud (SaaS) edition](cloud.md) and the
     [on-prem Sovereign / Sovereign-hybrid editions](sovereign-hybrid.md).
 
@@ -97,19 +97,18 @@ Full details, scopes and console links in the
 
 | Criterion                       | Community (Self-Host)        | Cloud (SaaS)                 | Sovereign / Sovereign-hybrid |
 |---------------------------------|------------------------------|------------------------------|------------------------------|
-| **Licence**                     | Open source **AGPL-3.0**     | Proprietary (SaaS)           | Proprietary (annual licence) |
-| **Cost**                        | Free                         | Free / €19.90/mo / quote     | Quote                        |
+| **Licence**                     | Open source **AGPL-3.0**     | Proprietary (SaaS)           | Proprietary (quote)          |
+| **Cost**                        | Free                         | Free / Pro €7.90/mo          | Quote                        |
 | **Hosting**                     | Your infra                   | Myeline Cloud (EU)           | Your infra                   |
-| **Users**                       | **Single-user**              | Multi (per seat / org)       | Multi-tenant enterprise      |
+| **Users**                       | **Single-user**              | Multi (per seat / org)       | Multi-tenant                 |
 | **AI synthesis**                | BYOK **+ local Ollama**      | Mistral included / BYOK      | Local Ollama and/or BYOK     |
 | **Cloud connectors**            | All (your OAuth apps)        | All                          | All (BYOC) / S3+WebDAV (air-gap) |
-| **Organisations & teams**       | ❌                           | ✅ (Pro / Enterprise)        | ✅                           |
-| **Enterprise OIDC SSO**         | ❌                           | ✅ (Enterprise)              | ✅                           |
+| **Organisations & teams**       | ❌                           | ✅ (Pro)                     | ✅                           |
 | **Billing / Stripe**            | ❌                           | ✅                           | ❌                           |
 | **Support**                     | Community (best-effort)      | Per plan                     | Included in contract         |
 
 In short: the Community edition is the **single-user open-source
-foundation**. Organisations, SSO, billing and multi-tenant are reserved
+foundation**. Organisations, billing and multi-tenant are reserved
 for the [Cloud](cloud.md) and
 [Sovereign / Sovereign-hybrid](sovereign-hybrid.md) editions.
 

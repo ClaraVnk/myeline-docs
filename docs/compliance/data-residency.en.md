@@ -48,7 +48,7 @@ documented**. Exhaustive list per configuration:
 | Mistral / Anthropic / OpenAI / Gemini API | On every RAG query if BYOK active | 1-5 KB per question   |
 | Brevo SMTP                    | Transactional email (signup, reset, invitation) | 1 KB per email |
 | Google / Microsoft / Dropbox APIs | Cloud connector sync             | Variable (listing + download) |
-| OIDC IdP                      | SSO login (if configured)            | 2-3 KB per auth        |
+| OIDC IdP                      | SSO login (SSO on request, no longer self-service) | 2-3 KB per auth        |
 
 **No outbound call** ever occurs:
 

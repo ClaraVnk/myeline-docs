@@ -1,5 +1,12 @@
 # Installation
 
+!!! info "On-premise / Sovereign — quote-based"
+    This section covers **on-premise** installations, delivered as part
+    of a **bespoke, quote-based** deployment. Scope, AI models and
+    integrations are calibrated with you. For the hosted version
+    (nothing to install), see [Cloud / Hosted](../cloud/index.md); for
+    free self-hosting, see [Community / Self-host](../community/index.md).
+
 Myeline ships with a guided installer (`scripts/install.sh`) that
 asks the right questions for your chosen edition and writes your
 `.env` file automatically.
@@ -9,8 +16,8 @@ Four detailed steps:
 - [Server prerequisites](prerequisites.md) — CPU / RAM / disk sizing
 - [Sovereign installation](sovereign.md) — air-gap on-prem
 - [Sovereign-hybrid installation](sovereign-hybrid.md) — on-prem + BYOK
-- [First admin login](first-login.md) — create the org, set up SSO,
-  verify the overall state
+- [First admin login](first-login.md) — create the org, verify the
+  overall state
 
 ## Process overview
 

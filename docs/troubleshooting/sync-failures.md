@@ -58,7 +58,7 @@ erreur). L'historique de sync est préservé.
 
 > Ne s'applique **pas à Google Drive** : depuis Myeline v1.0.2, Drive
 > utilise un compte de service (server-to-server) qui ne dépend pas
-> de tokens OAuth utilisateur. Voir [Connecteurs cloud § Google Drive](../admin/cloud-connectors.md#google-drive--compte-de-service).
+> de tokens OAuth utilisateur. Voir [Connecteurs cloud § Google Drive](../concepts/cloud-connectors.md#google-drive-compte-de-service).
 
 ## OAuth refusé / `redirect_uri_mismatch` (OneDrive, Dropbox, Notion)
 
@@ -110,7 +110,7 @@ dans la bibliothèque.
 
 - **Format non supporté** (XLSX, PPTX, ZIP, vidéo, image…). Voir la
   liste des formats indexés dans
-  [Bibliothèque et upload](../usage/upload-documents.md).
+  [Bibliothèque et upload](../concepts/library.md).
 - **Taille > 50 MB** (rejet silencieux côté indexer).
 - **Document chiffré côté provider** (Drive « Confidentialité
   protégée », SharePoint « Information rights management »). L'API

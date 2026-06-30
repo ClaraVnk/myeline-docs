@@ -55,31 +55,15 @@ différents providers selon leurs besoins.
     Les changements de provider sont effectifs à la prochaine
     requête RAG, sans redémarrage.
 
-## 6. Configurer OIDC SSO (recommandé)
+## 6. SSO entreprise
 
-Pour des utilisateurs entreprise, configurez le SSO OIDC plutôt que
-l'email + mot de passe :
-
-`/org/<slug>/oidc` :
-
-- **Issuer URL** : URL OIDC discovery de votre IdP
-    - Azure AD : `https://login.microsoftonline.com/<tenant-id>/v2.0`
-    - Keycloak : `https://keycloak.acme.local/realms/myeline`
-    - Okta : `https://acme.okta.com/oauth2/default`
-- **Client ID** + **Client Secret** : générés par votre IdP
-- **Redirect URI** à autoriser dans votre IdP :
-  `https://myeline.acme.local/org/<slug>/oidc/callback`
-- **Scopes** : `openid email profile` au minimum
-
-Voir [SSO entreprise (OIDC)](../admin/oidc-sso.md) pour le
-walkthrough complet par IdP.
+Le SSO entreprise est disponible sur demande (service sur-mesure
+on-premise) — contact hello@myeline.io.
 
 ## 7. Inviter les utilisateurs
 
 Trois voies selon votre approche :
 
-- **Self-service** : si OIDC est configuré, les utilisateurs se
-  connectent simplement via SSO et leur compte est auto-provisionné
 - **Invitation manuelle** : `/admin/users → Inviter` envoie un email
   d'invitation (nécessite un mailer fonctionnel)
 - **Bulk via CLI** : `flask create-user user@acme.com --org acme`
@@ -144,5 +128,5 @@ podman-compose restart web cron worker
 
 - [Sauvegarde et restauration](../operations/backup-restore.md)
 - [Mise à jour](../operations/upgrade.md)
-- [Recherche RAG côté utilisateur](../usage/rag-search.md)
+- [Recherche RAG côté utilisateur](../concepts/rag-search.md)
 - [FAQ](../faq.md)

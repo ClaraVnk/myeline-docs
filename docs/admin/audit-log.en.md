@@ -1,7 +1,7 @@
 # Audit log
 
 Every sensitive action (creation / deletion / privilege escalation,
-adding a cloud connector, licence change, OIDC configuration, account
+adding a cloud connector, licence change, account
 deletion…) is recorded in the `audit_logs` table and viewable via
 `/admin/audit`.
 

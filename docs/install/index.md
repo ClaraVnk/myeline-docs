@@ -1,5 +1,13 @@
 # Installation
 
+!!! info "On-premise / Souverain — sur devis"
+    Cette section couvre les installations **on-premise**, livrées dans
+    le cadre d'un déploiement **sur-mesure, sur devis**. Le périmètre,
+    les modèles IA et les intégrations sont calibrés avec vous. Pour la
+    version hébergée (rien à installer), voir le
+    [Cloud / Hébergé](../cloud/index.md) ; pour l'auto-hébergement
+    gratuit, voir [Community / Self-host](../community/index.md).
+
 Myeline est livré avec un installer guidé (`scripts/install.sh`) qui
 pose les bonnes questions selon l'édition choisie et écrit votre
 fichier `.env` automatiquement.
@@ -9,8 +17,8 @@ Quatre étapes détaillées :
 - [Pré-requis serveur](prerequisites.md) — sizing CPU / RAM / disque
 - [Installation souveraine](sovereign.md) — air-gap on-prem
 - [Installation souverain-hybride](sovereign-hybrid.md) — on-prem + BYOK
-- [Première connexion admin](first-login.md) — créer l'org, le SSO,
-  vérifier l'état général
+- [Première connexion admin](first-login.md) — créer l'org, vérifier
+  l'état général
 
 ## Vue d'ensemble du processus
 

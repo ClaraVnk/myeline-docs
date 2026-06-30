@@ -1,5 +1,10 @@
 # GDPR compliance
 
+!!! info "Edition"
+    Applies to **all editions**, with different postures: **Cloud** =
+    Myeline is a processor (DPA); **On-premise** = you are the data
+    controller; **Community** = open source.
+
 This page documents Myeline's GDPR posture in on-prem editions
 (sovereign and sovereign-hybrid).
 

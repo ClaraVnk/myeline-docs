@@ -1,5 +1,9 @@
 # Licence renewal
 
+!!! info "Edition"
+    **On-premise (quote) only.** **Community**: open source, no licence.
+    **Cloud**: billing via Stripe.
+
 Myeline licences have a maximum duration of **12 months**. This page
 covers the renewal cycle and recovery procedures in case of incident.
 

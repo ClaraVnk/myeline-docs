@@ -101,7 +101,7 @@ Details: [GDPR compliance](compliance/gdpr.md).
 ### Which document formats are supported?
 
 PDF, DOCX, ODT, TXT, MD, HTML, CSV. See
-[Library and uploads](usage/upload-documents.md).
+[Library and uploads](concepts/library.md).
 
 OCR on scanned PDFs is disabled by default — enable via
 `RAG_OCR_ENABLED=true` (sovereign-hybrid only, Tesseract dependency).
@@ -117,7 +117,7 @@ library (personal or shared) is filled exclusively via:
 
 This is a design choice (single source of truth on the customer
 side, compliance, simple ingestion path) — see
-[Library § Why no manual upload?](usage/upload-documents.md#why-no-manual-upload).
+[Library § Why no manual upload?](concepts/library.md#why-no-manual-upload).
 
 ### How many concurrent users?
 

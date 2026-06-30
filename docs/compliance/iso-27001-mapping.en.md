@@ -15,7 +15,7 @@ served by the platform and which remain on your side.
 |---------|-------|------------------|
 | 5.1     | IS policies | Out of scope (policy = you) |
 | 5.10    | Acceptable use | T&Cs + EULA provided |
-| 5.15    | Access control | Login, RBAC org (owner/admin/member), OIDC SSO |
+| 5.15    | Access control | Login, RBAC org (owner/admin/member), Email + password + TOTP (SSO on request) |
 | 5.16    | Identity management | Creation / deactivation / automatic purge |
 | 5.17    | Authentication info | Argon2id password, optional TOTP |
 | 5.18    | Access rights | RBAC model + escalation audit |
@@ -35,7 +35,7 @@ Out of scope — you host Myeline.
 |---------|-------|------------------|
 | 8.2     | Privileged access | `/admin/audit` traces escalations |
 | 8.3     | Information access restriction | ChromaDB scopes per user / org |
-| 8.5     | Secure authentication | Password + TOTP + OIDC, rate limiting |
+| 8.5     | Secure authentication | Password + TOTP (SSO on request), rate limiting |
 | 8.6     | Capacity management | Plan-based quotas, 80 % / 100 % alerts |
 | 8.7     | Malware protection | MIME check + optional ClamAV on uploads |
 | 8.8     | Technical vulnerabilities | Up-to-date OCI image, audited deps (`pip-audit`) |

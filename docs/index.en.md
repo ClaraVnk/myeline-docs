@@ -10,17 +10,26 @@ through the **Mistral API** (EU / France) — included key on Pro, your
 own key on Free — and synthesis uses included Mistral (Pro) or your
 BYOK key (Free). In sovereign on-prem, everything stays local.
 
-Myeline comes in two families: the hosted **Cloud** offering on
-[myeline.io](https://myeline.io) (Free / Pro, nothing to install) and
-the **On-premise / Sovereign** offering delivered turnkey to
-organisations — a **bespoke, quote-based** installation (air-gap or
-BYOK).
+Myeline comes in two main edition families, plus a bespoke offering:
+
+- **[Community / Self-host (OSS)](community/index.md)** — the
+  **open-source (AGPL-3.0)**, single-user edition to self-host for free
+  (BYOK + local Ollama).
+- **[Cloud / Hosted](cloud/index.md)** — the SaaS version on
+  [myeline.io](https://myeline.io): **Free** (your key) or **Pro** at
+  €7.90/mo (Mistral included, 15-day trial), nothing to install.
+- **[On-premise / Sovereign](editions/index.md)** — deployment on
+  **your infrastructure** (air-gap or BYOK), multi-tenant: a
+  **bespoke, quote-based** installation.
+
+Feature usage (RAG search, library, connectors, conversations, watch)
+is **common to all editions** and described in the
+[Concepts (all editions)](concepts/index.md).
 
 !!! tip "Using the hosted version (myeline.io)?"
-    This documentation is mostly on-prem-oriented. For the SaaS, start
-    with the [Cloud edition (Free / Pro)](editions/cloud.md)
-    and the [Get a free AI API key in 2 minutes](usage/get-api-key.md)
-    guide.
+    Start with the [Cloud / Hosted](cloud/index.md) page,
+    [Getting started](cloud/getting-started.md) and the
+    [Get a free AI API key in 2 minutes](concepts/get-api-key.md) guide.
 
 ---
 
@@ -92,7 +101,7 @@ BYOK).
   upgrade, monitoring, license renewal.
 - :material-account-cog: **[Administration](admin/index.md)**: manage
   organisations, quotas, audit log.
-- :material-magnify: **[RAG search for end-users](usage/rag-search.md)**:
+- :material-magnify: **[RAG search for end-users](concepts/rag-search.md)**:
   asking questions, refining results, conversations.
 - :material-shield-check: **[GDPR compliance](compliance/gdpr.md)**:
   sub-processor registry, DPA, exercising rights.

@@ -2,7 +2,7 @@
 
 Toute action sensible (création / suppression / élévation de
 privilèges, ajout d'un connecteur cloud, changement de licence,
-configuration OIDC, suppression de compte…) est tracée dans la
+suppression de compte…) est tracée dans la
 table `audit_logs` et consultable via `/admin/audit`.
 
 ## Champs enregistrés

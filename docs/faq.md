@@ -107,7 +107,7 @@ Détail : [Conformité RGPD](compliance/gdpr.md).
 ### Quels formats de documents sont supportés ?
 
 PDF, DOCX, ODT, TXT, MD, HTML, CSV. Voir
-[Bibliothèque et upload](usage/upload-documents.md).
+[Bibliothèque et upload](concepts/library.md).
 
 L'OCR sur PDF scannés est désactivé par défaut — activable via
 `RAG_OCR_ENABLED=true` (souverain-hybride uniquement, dépendance
@@ -124,7 +124,7 @@ bibliothèque (perso ou partagée) se remplit exclusivement via :
 
 C'est un choix de design (source unique de vérité chez le client,
 conformité, simplicité d'ingestion) — voir
-[Bibliothèque § Pourquoi pas d'upload manuel ?](usage/upload-documents.md#pourquoi-pas-dupload-manuel).
+[Bibliothèque § Pourquoi pas d'upload manuel ?](concepts/library.md#pourquoi-pas-dupload-manuel).
 
 ### Combien d'utilisateurs simultanés ?
 

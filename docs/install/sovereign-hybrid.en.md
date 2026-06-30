@@ -72,7 +72,7 @@ If you skip Brevo, the mailer stays in log-only mode (like sovereign).
 ── AI synthesis
 
   Mistral is the default provider (French, EU-hosted, GDPR-aligned).
-  In hybrid mode, each Enterprise organisation can switch to OpenAI
+  In hybrid mode, each organisation can switch to OpenAI
   / Anthropic / Gemini with its own key via /admin/orgs (BYOK).
 
     Configure Mistral platform key? [Y/n]: Y
@@ -161,9 +161,9 @@ Tip to compact the JSON: `cat downloaded.json | jq -c .`
 
 ### 3.5 Authentication
 
-The wizard skips the "social login" section in sovereign-hybrid (see
-[why](../admin/oidc-sso.md)). For enterprise authentication,
-configure **OIDC SSO** after install via `/org/<slug>/oidc`.
+The wizard skips the "social login" section in sovereign-hybrid.
+Enterprise SSO is available on request (bespoke on-premise service) —
+contact hello@myeline.io.
 
 ### 3.6 The rest
 
@@ -216,6 +216,5 @@ curl https://myeline.acme.local/license-info
 ## Next steps
 
 - [First admin login](first-login.md)
-- [Configure enterprise OIDC](../admin/oidc-sso.md)
 - [Pick the right LLM per organisation](../admin/organizations.md)
 - [Off-host backups](../operations/backup-restore.md)

@@ -57,7 +57,7 @@ is preserved.
 
 > Does **not apply to Google Drive**: since Myeline v1.0.2, Drive uses
 > a service account (server-to-server) which doesn't depend on user
-> OAuth tokens. See [Cloud connectors § Google Drive](../admin/cloud-connectors.md#google-drive--service-account).
+> OAuth tokens. See [Cloud connectors § Google Drive](../concepts/cloud-connectors.md#google-drive-service-account).
 
 ## OAuth refused / `redirect_uri_mismatch` (OneDrive, Dropbox, Notion)
 
@@ -108,7 +108,7 @@ library.
 
 - **Unsupported format** (XLSX, PPTX, ZIP, video, image…). See the
   list of indexed formats in
-  [Library and uploads](../usage/upload-documents.md).
+  [Library and uploads](../concepts/library.md).
 - **Size > 50 MB** (silent reject indexer-side).
 - **Provider-side encrypted document** (Drive "Confidentiality
   protected", SharePoint "Information rights management"). The API

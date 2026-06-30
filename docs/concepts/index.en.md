@@ -1,11 +1,17 @@
-# Usage
+# Concepts (all editions)
 
-This section covers usage **on the end-user side** — features
-exposed via the web interface.
+!!! info "Shared usage"
+    These concepts are **common to all editions** (Community, Cloud,
+    on-premise) — with slight variations per edition. They describe
+    usage **on the end-user side**, via the web interface.
 
-- [Library](upload-documents.md) — how personal and org libraries
+- [Get an API key](get-api-key.md) — create a free key
+  (Mistral / Gemini) for indexing and synthesis.
+- [Library](library.md) — how personal and org libraries
   are fed via cloud connectors and scrapers (no manual upload),
   indexed formats, pipeline.
+- [Cloud connectors](cloud-connectors.md) — Google Drive, OneDrive,
+  Dropbox, kDrive, S3, WebDAV… activation and credentials.
 - [RAG search](rag-search.md) — ask a question, refine, cite the
   sources, strict mode.
 - [Multi-turn conversations](conversations.md) — persistent

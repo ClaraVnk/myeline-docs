@@ -313,8 +313,7 @@ sudo iptables -L OUTPUT -v
 
 ## Next steps
 
-- [First admin login](first-login.md) — set up the org, users,
-  optionally OIDC SSO
+- [First admin login](first-login.md) — set up the org and users
 - [Backup and restore](../operations/backup-restore.md) — verify
   the `backup_databases` cron has run
 - [Licence renewal](../operations/license-renewal.md) — note the

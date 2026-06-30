@@ -1,5 +1,10 @@
 # Conformité RGPD
 
+!!! info "Édition"
+    Concerne **toutes les éditions**, avec des postures différentes :
+    **Cloud** = Myeline est sous-traitant (DPA) ; **On-premise** = vous
+    êtes responsable de traitement ; **Community** = open source.
+
 Cette page documente la posture RGPD de Myeline en éditions on-prem
 (souverain et souverain-hybride).
 

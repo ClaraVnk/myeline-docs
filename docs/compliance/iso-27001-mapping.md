@@ -16,7 +16,7 @@ restent à votre charge.
 |----------|---------|---------------------|
 | 5.1      | Politiques de SI | Hors scope (politique = vous) |
 | 5.10     | Acceptable use | CGU + EULA fournis |
-| 5.15     | Contrôle d'accès | Login, RBAC org (owner/admin/member), OIDC SSO |
+| 5.15     | Contrôle d'accès | Login, RBAC org (owner/admin/member), Email + mot de passe + TOTP (SSO sur demande) |
 | 5.16     | Gestion des identités | Création / désactivation / purge automatique |
 | 5.17     | Information d'authentification | Argon2id mot de passe, TOTP optionnel |
 | 5.18     | Droits d'accès | Modèle RBAC + audit des élévations |
@@ -36,7 +36,7 @@ Hors scope — vous hébergez Myeline.
 |----------|---------|---------------------|
 | 8.2      | Privileges access | `/admin/audit` trace les élévations |
 | 8.3      | Restriction d'accès info | Scopes ChromaDB par utilisateur / org |
-| 8.5      | Authentification sécurisée | Mot de passe + TOTP + OIDC, rate limiting |
+| 8.5      | Authentification sécurisée | Mot de passe + TOTP (SSO sur demande), rate limiting |
 | 8.6      | Capacity management | Quotas par plan, alertes 80 % / 100 % |
 | 8.7      | Protection malware | MIME check + ClamAV optionnel sur uploads |
 | 8.8      | Vulnérabilités techniques | Image OCI à jour, deps audités (`pip-audit`) |

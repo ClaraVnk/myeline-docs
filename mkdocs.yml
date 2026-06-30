@@ -120,37 +120,42 @@ plugins:
             "Cloud (SaaS)": "Cloud (SaaS)"
             "Souverain (air-gap)": "Sovereign (air-gap)"
             "Souverain-hybride (BYOK)": "Sovereign-hybrid (BYOK)"
+            "Community / Self-host (OSS)": "Community / Self-host (OSS)"
+            "Cloud / Hébergé": "Cloud / Hosted"
+            "Premiers pas": "Getting started"
+            "FAQ Cloud": "Cloud FAQ"
+            "Concepts (toutes éditions)": "Concepts (all editions)"
+            "Obtenir une clé API": "Get an API key"
+            "Bibliothèque": "Library"
+            "Connecteurs cloud": "Cloud connectors"
+            "Recherche RAG": "RAG search"
+            "Conversations multi-tours": "Multi-turn conversations"
+            "Alertes et veille": "Alerts and watch"
+            "On-premise / Souverain (sur devis)": "On-premise / Sovereign (quote-based)"
             "Installation": "Installation"
             "Pré-requis serveur": "Server prerequisites"
             "Installation souveraine": "Sovereign installation"
             "Installation souverain-hybride": "Sovereign-hybrid installation"
             "Rocky / RHEL + Quadlet": "Rocky / RHEL + Quadlet"
             "Première connexion admin": "First admin login"
+            "Administration": "Administration"
+            "Organisations et utilisateurs": "Organisations and users"
+            "Quotas et plans": "Quotas and plans"
+            "Journal d'audit": "Audit log"
             "Opérations": "Operations"
             "Sauvegarde et restauration": "Backup and restore"
             "Mise à jour": "Upgrade"
             "Supervision": "Monitoring"
             "Renouvellement de licence": "License renewal"
-            "Administration": "Administration"
-            "Organisations et utilisateurs": "Organisations and users"
-            "SSO entreprise (OIDC)": "Enterprise SSO (OIDC)"
-            "Quotas et plans": "Quotas and plans"
-            "Journal d'audit": "Audit log"
-            "Connecteurs cloud": "Cloud connectors"
-            "Utilisation": "Usage"
-            "Obtenir une clé API": "Get an API key"
-            "Bibliothèque": "Library"
-            "Recherche RAG": "RAG search"
-            "Conversations multi-tours": "Multi-turn conversations"
-            "Alertes et veille": "Alerts and watch"
-            "Conformité": "Compliance"
-            "RGPD": "GDPR"
-            "Localisation des données": "Data residency"
-            "Cartographie ISO 27001": "ISO 27001 mapping"
             "Dépannage": "Troubleshooting"
             "Erreurs de licence": "License errors"
             "Problèmes Ollama": "Ollama issues"
             "Échecs de synchronisation": "Sync failures"
+            "Conformité": "Compliance"
+            "RGPD": "GDPR"
+            "Localisation des données": "Data residency"
+            "Cartographie ISO 27001": "ISO 27001 mapping"
+            "FAQ (on-premise)": "FAQ (on-premise)"
 
 nav:
   - Accueil: index.md
@@ -160,41 +165,47 @@ nav:
       - Cloud (SaaS): editions/cloud.md
       - Souverain (air-gap): editions/sovereign.md
       - Souverain-hybride (BYOK): editions/sovereign-hybrid.md
-  - Installation:
-      - install/index.md
-      - Pré-requis serveur: install/prerequisites.md
-      - Installation souveraine: install/sovereign.md
-      - Installation souverain-hybride: install/sovereign-hybrid.md
-      - Rocky / RHEL + Quadlet: install/rocky-quadlet.md
-      - Première connexion admin: install/first-login.md
-  - Opérations:
-      - operations/index.md
-      - Sauvegarde et restauration: operations/backup-restore.md
-      - Mise à jour: operations/upgrade.md
-      - Supervision: operations/monitoring.md
-      - Renouvellement de licence: operations/license-renewal.md
-  - Administration:
-      - admin/index.md
-      - Organisations et utilisateurs: admin/organizations.md
-      - SSO entreprise (OIDC): admin/oidc-sso.md
-      - Quotas et plans: admin/quotas.md
-      - Journal d'audit: admin/audit-log.md
-      - Connecteurs cloud: admin/cloud-connectors.md
-  - Utilisation:
-      - usage/index.md
-      - Obtenir une clé API: usage/get-api-key.md
-      - Bibliothèque: usage/upload-documents.md
-      - Recherche RAG: usage/rag-search.md
-      - Conversations multi-tours: usage/conversations.md
-      - Alertes et veille: usage/watch-alerts.md
+  - Community / Self-host (OSS):
+      - community/index.md
+  - Cloud / Hébergé:
+      - cloud/index.md
+      - Premiers pas: cloud/getting-started.md
+      - FAQ Cloud: cloud/faq.md
+  - Concepts (toutes éditions):
+      - concepts/index.md
+      - Obtenir une clé API: concepts/get-api-key.md
+      - Bibliothèque: concepts/library.md
+      - Connecteurs cloud: concepts/cloud-connectors.md
+      - Recherche RAG: concepts/rag-search.md
+      - Conversations multi-tours: concepts/conversations.md
+      - Alertes et veille: concepts/watch-alerts.md
+  - On-premise / Souverain (sur devis):
+      - Installation:
+          - install/index.md
+          - Pré-requis serveur: install/prerequisites.md
+          - Installation souveraine: install/sovereign.md
+          - Installation souverain-hybride: install/sovereign-hybrid.md
+          - Rocky / RHEL + Quadlet: install/rocky-quadlet.md
+          - Première connexion admin: install/first-login.md
+      - Administration:
+          - admin/index.md
+          - Organisations et utilisateurs: admin/organizations.md
+          - Quotas et plans: admin/quotas.md
+          - Journal d'audit: admin/audit-log.md
+      - Opérations:
+          - operations/index.md
+          - Sauvegarde et restauration: operations/backup-restore.md
+          - Mise à jour: operations/upgrade.md
+          - Supervision: operations/monitoring.md
+          - Renouvellement de licence: operations/license-renewal.md
+      - Dépannage:
+          - troubleshooting/index.md
+          - Erreurs de licence: troubleshooting/license-errors.md
+          - Problèmes Ollama: troubleshooting/ollama-issues.md
+          - Échecs de synchronisation: troubleshooting/sync-failures.md
   - Conformité:
       - compliance/index.md
       - RGPD: compliance/gdpr.md
       - Localisation des données: compliance/data-residency.md
       - Cartographie ISO 27001: compliance/iso-27001-mapping.md
-  - Dépannage:
-      - troubleshooting/index.md
-      - Erreurs de licence: troubleshooting/license-errors.md
-      - Problèmes Ollama: troubleshooting/ollama-issues.md
-      - Échecs de synchronisation: troubleshooting/sync-failures.md
-  - FAQ: faq.md
+  - FAQ (on-premise): faq.md

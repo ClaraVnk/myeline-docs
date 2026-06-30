@@ -1,5 +1,9 @@
 # Renouvellement de licence
 
+!!! info "Édition"
+    **On-premise (sur devis) uniquement.** **Community** : open source,
+    pas de licence. **Cloud** : facturation via Stripe.
+
 Les licences Myeline ont une durée maximale de **12 mois**. Cette
 section couvre le cycle de renouvellement et les procédures de
 recovery en cas d'incident.

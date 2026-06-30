@@ -1,5 +1,9 @@
 # Quotas et plans
 
+!!! info "Édition"
+    **On-premise uniquement.** Le **Cloud** (Free / Pro) a ses propres
+    limites (voir l'[édition Cloud](../editions/cloud.md)).
+
 En éditions on-prem (souverain et souverain-hybride), la **licence
 couvre l'opérateur** — il n'y a pas de notion de plan utilisateur
 interne. Toutes les fonctionnalités sont activées : multi-turn,
