@@ -5,6 +5,13 @@ infrastructure**, sans aucun appel API externe. Conçue pour les
 secteurs régulés où la résidence et l'isolation des données sont
 contractuelles ou réglementaires.
 
+!!! info "Offre On-premise / Souverain — sur devis"
+    Le déploiement souverain fait partie de l'offre **On-premise /
+    Souverain**, une **installation sur-mesure, sur devis**. Il n'y a
+    **pas de souscription en self-service** : périmètre, modèles et
+    intégration sont calibrés avec vous. Pour démarrer,
+    [nous contacter](mailto:hello@myeline.io).
+
 ## Promesse air-gap
 
 Aucun bit de donnée utilisateur ne quitte votre périmètre réseau.
@@ -18,7 +25,7 @@ Concrètement, dans cette édition :
 | **Mailer (Brevo)**       | Forcé en log-only — emails écrits dans `logs/mailer/` |
 | **Stripe**               | Routes `/payment/*` retournent 404, webhook 404      |
 | **Connecteurs cloud**    | **Seuls S3 (MinIO interne) et WebDAV (Nextcloud interne) sont disponibles**. Public-cloud (GDrive, OneDrive, Dropbox, Notion, Zotero, kDrive) bloqués. |
-| **Connexion sociale**    | `/auth/social/*` bloqués. SSO entreprise OIDC (Azure AD on-prem, Keycloak…) reste actif. |
+| **Connexion sociale**    | `/auth/social/*` bloqués (Google / Microsoft). Connexion par email + mot de passe interne. |
 | **Validation de licence**| Ed25519 hors-ligne, signée — aucune connexion réseau requise |
 | **CDN frontend**         | Assets bundlés localement (`/static/vendor/`) — pas de jsdelivr / Google Fonts |
 | **Google Analytics**     | Hard-désactivé                                        |

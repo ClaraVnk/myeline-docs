@@ -32,6 +32,34 @@ perpétuelle, par construction).
 Oui — licence de 30 jours pour évaluation, à demander sur le même
 canal. Couvre toutes les fonctionnalités du tier hybride.
 
+## Tarifs (offre hébergée)
+
+### Combien coûte l'offre hébergée sur myeline.io ?
+
+- **Free** : **gratuit**, sans limite de durée — vous branchez votre
+  **propre clé IA** (BYOK, Mistral / OpenAI / Claude / Gemini).
+- **Pro** : **7,90 €/mois**, **facturation mensuelle**, avec **15 jours
+  d'essai gratuit**. Mistral inclus (aucune clé à gérer) et toutes les
+  limites levées.
+- **Équipes / organisations** : facturées **par siège**, soit
+  **7,90 €/membre**.
+- **On-premise / Souverain** : installation **sur-mesure, sur devis** —
+  [nous contacter](mailto:hello@myeline.io).
+
+Détail : [Édition Cloud](editions/cloud.md).
+
+### L'essai Pro est-il vraiment gratuit ?
+
+Oui : **15 jours**, aucun débit avant J+15, annulable à tout moment
+(carte requise pour démarrer l'essai). À la fin de l'essai, vous passez
+en Pro mensuel à 7,90 €/mois, ou vous revenez en Free.
+
+### Y a-t-il une offre annuelle ?
+
+Non. L'offre **Pro est mensuelle uniquement** (7,90 €/mois). Pour un
+besoin on-premise, le tarif est **sur devis** — parlons-en :
+[hello@myeline.io](mailto:hello@myeline.io).
+
 ## Données
 
 ### Mes données quittent-elles mon réseau ?
@@ -109,8 +137,8 @@ souverain-hybride.
 ### Le multi-tenant fonctionne-t-il en on-prem ?
 
 Oui. Une instance Myeline peut héberger **plusieurs organisations**,
-chacune avec sa propre collection ChromaDB, ses utilisateurs, son
-OIDC, son provider IA (en souverain-hybride). Les organisations sont
+chacune avec sa propre collection ChromaDB, ses utilisateurs et son
+provider IA (en souverain-hybride). Les organisations sont
 strictement isolées.
 
 ## Opérations
@@ -129,11 +157,6 @@ Voir [Mise à jour](operations/upgrade.md).
 Cron quotidien automatique à 02:30 (DB + ChromaDB + uploads). Off-host
 recommandé via rclone / MinIO / borg. Voir
 [Sauvegarde et restauration](operations/backup-restore.md).
-
-### Puis-je intégrer Myeline à mon SSO entreprise ?
-
-Oui — OIDC (Azure AD, Okta, Keycloak, Authentik, tout IdP standard).
-Voir [SSO entreprise](admin/oidc-sso.md).
 
 ### Y a-t-il une API publique ?
 

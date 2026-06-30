@@ -70,7 +70,7 @@ licence** (depuis `app/cron/check_cloud_sync.py`) :
 |---------------|----------------------------------|
 | Free          | 24 h (1 fois par jour)           |
 | Pro           | 1 h (configurable, jusqu'à toutes les heures) |
-| Enterprise    | Sur mesure (jusqu'à 15 min)      |
+| On-premise / Souverain | Sur mesure (jusqu'à 15 min)      |
 
 Le owner peut déclencher une sync à la demande depuis
 `/user/cloud` (limité à 1 fois/heure quel que soit le tier).

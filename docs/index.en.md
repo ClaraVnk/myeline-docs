@@ -11,14 +11,14 @@ own key on Free — and synthesis uses included Mistral (Pro) or your
 BYOK key (Free). In sovereign on-prem, everything stays local.
 
 Myeline comes in two families: the hosted **Cloud** offering on
-[myeline.io](https://myeline.io) (Free / Pro / Enterprise, nothing to
-install) and the **two on-prem editions** delivered turnkey to
-organisations — **Sovereign** (air-gap) and **Sovereign-hybrid**
-(BYOK).
+[myeline.io](https://myeline.io) (Free / Pro, nothing to install) and
+the **On-premise / Sovereign** offering delivered turnkey to
+organisations — a **bespoke, quote-based** installation (air-gap or
+BYOK).
 
 !!! tip "Using the hosted version (myeline.io)?"
     This documentation is mostly on-prem-oriented. For the SaaS, start
-    with the [Cloud edition (Free / Pro / Enterprise)](editions/cloud.md)
+    with the [Cloud edition (Free / Pro)](editions/cloud.md)
     and the [Get a free AI API key in 2 minutes](usage/get-api-key.md)
     guide.
 
@@ -54,8 +54,8 @@ organisations — **Sovereign** (air-gap) and **Sovereign-hybrid**
     ---
 
     Hosted on myeline.io (EU / France), nothing to install. **Free**
-    is free with your own API key, **Pro** at €19.90/mo with Mistral
-    included, **Enterprise** on quote.
+    is free with your own API key, **Pro** at €7.90/mo with Mistral
+    included (15-day trial). Need on-premise? On quote.
 
     [:octicons-arrow-right-24: Learn more](editions/cloud.md)
 
@@ -91,7 +91,7 @@ organisations — **Sovereign** (air-gap) and **Sovereign-hybrid**
 - :material-cog: **[Day-2 operations](operations/index.md)**: backup,
   upgrade, monitoring, license renewal.
 - :material-account-cog: **[Administration](admin/index.md)**: manage
-  organisations, OIDC SSO, quotas, audit log.
+  organisations, quotas, audit log.
 - :material-magnify: **[RAG search for end-users](usage/rag-search.md)**:
   asking questions, refining results, conversations.
 - :material-shield-check: **[GDPR compliance](compliance/gdpr.md)**:

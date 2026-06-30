@@ -6,10 +6,10 @@ Myeline comes in two families: the hosted **Cloud** offering
 this page compares the two on-prem editions.
 
 !!! info "Looking for the hosted version?"
-    The [Cloud (SaaS) edition](cloud.md) offers **Free / Pro /
-    Enterprise** plans on myeline.io, no installation. Free is free
-    (with your own API key), Pro includes Mistral at €19.90/mo. See
-    [Cloud edition](cloud.md).
+    The [Cloud (SaaS) edition](cloud.md) offers **Free / Pro** plans on
+    myeline.io, no installation. Free is free (with your own API key),
+    Pro includes Mistral at **€7.90/mo** (15-day trial, monthly
+    billing). See [Cloud edition](cloud.md).
 
 !!! tip "Just want to self-host it for free?"
     The [**Community / Self-Host** edition](community.md) is the
@@ -32,12 +32,11 @@ you have available.
 | **AI synthesis**               | Local Ollama only   | Per-org choice: Ollama OR Mistral / Claude / OpenAI / Gemini |
 | **Embedding**                  | Local Ollama        | Local Ollama               |
 | **Cloud connectors**           | S3 + WebDAV only (toward internal infra) | All (with **your** OAuth apps — see BYOC) |
-| **Social login (Google/MS/Apple)** | ❌              | ❌ (use enterprise OIDC instead) |
-| **Enterprise OIDC SSO**        | Included            | Included                   |
+| **Social login (Google / Microsoft)** | ❌           | ❌                         |
 | **Stripe billing**             | ❌                  | ❌                         |
 | **Multi-tenant**               | Single-tenant by default | Single-tenant by default |
 | **Updates**                    | Manual (`podman pull`) | Manual (`podman pull`)  |
-| **Pricing**                    | Annual licence (quote) | Annual licence (quote) |
+| **Pricing**                    | On quote — contact us | On quote — contact us |
 
 ## When to choose which?
 
@@ -83,9 +82,10 @@ Full walkthrough:
 
 If you have no self-hosting constraint, the [Cloud (SaaS)
 edition](cloud.md) is the fastest path: free account, cloud
-connectors, RAG search, no server to manage. The Cloud Enterprise
-plan overlaps on-prem needs (isolation, OIDC SSO, audit) — we point
-you to the right edition depending on your sovereignty requirements.
+connectors, RAG search, no server to manage (**Free** or **Pro at
+€7.90/mo**). If sovereignty or air-gap are requirements, the
+**On-premise / Sovereign** offering is a **bespoke, quote-based**
+installation — let's talk: [hello@myeline.io](mailto:hello@myeline.io).
 
 ## Migrating between editions
 

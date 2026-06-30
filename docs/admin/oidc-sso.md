@@ -4,10 +4,11 @@ Myeline supporte **OpenID Connect** pour permettre à vos utilisateurs
 de se connecter avec leur compte Azure AD / Entra ID, Okta, Keycloak,
 Authentik ou tout IdP conforme OIDC.
 
-L'OIDC SSO est **inclus dans toutes les éditions on-prem** (souverain
-et souverain-hybride). En revanche, le **social login**
-(Google / Microsoft / Apple via boutons publics) est **désactivé**
-sur ces deux éditions — voir [Choisir son édition](../editions/index.md).
+L'OIDC SSO est disponible dans le cadre de l'offre **On-premise /
+Souverain** (installation sur-mesure, sur devis). En revanche, le
+**social login** (Google / Microsoft via boutons publics) est
+**désactivé** en on-prem — voir
+[Choisir son édition](../editions/index.md).
 
 ## Pré-requis côté IdP
 

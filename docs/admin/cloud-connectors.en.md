@@ -66,7 +66,7 @@ the flow — myeline.io's OAuth app cannot serve your users.
 |---------------|------------------------------------|
 | Free          | 24 h (once per day)                |
 | Pro           | 1 h (configurable, up to hourly)   |
-| Enterprise    | Custom (down to 15 min)            |
+| On-premise / Sovereign | Custom (down to 15 min)            |
 
 The owner can trigger an on-demand sync from `/user/cloud` (capped
 at 1/h regardless of tier).

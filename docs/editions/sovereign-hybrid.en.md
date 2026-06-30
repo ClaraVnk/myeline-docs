@@ -9,6 +9,12 @@ It's the trade-off: **your data stays on your infrastructure**, but
 **AI synthesis calls can go out** to external APIs **that you
 configure yourself** (BYOK — Bring Your Own Key).
 
+!!! info "On-premise / Sovereign offering — on quote"
+    The sovereign-hybrid deployment is part of the **On-premise /
+    Sovereign** offering, a **bespoke, quote-based** installation — no
+    self-service subscription. To get started,
+    [contact us](mailto:hello@myeline.io).
+
 ## Architecture
 
 ```mermaid
@@ -38,7 +44,7 @@ graph TB
 
 ## BYOK — Bring Your Own Key
 
-In sovereign-hybrid mode, **each Enterprise organisation** within
+In sovereign-hybrid mode, **each organisation** within
 your deployment can independently choose its LLM provider via
 `/admin/orgs/<slug>`:
 
@@ -54,7 +60,7 @@ each org pays the provider directly.
 
 ### BYOK embedding (synapse 0025)
 
-Since migration 0025, each Enterprise organisation can also choose its
+Since migration 0025, each organisation can also choose its
 **embedding provider** independently of the LLM. Useful when the
 deployment defaults to Ollama bge-m3 but an org wants a higher-quality
 embedding (Voyage, Cohere multilingual) or a separate billing trail

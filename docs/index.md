@@ -11,14 +11,14 @@ propre clé en Free — et la synthèse utilise Mistral inclus (Pro) ou
 votre clé BYOK (Free). En on-prem souverain, tout reste local.
 
 Myeline existe en deux familles : l'offre **Cloud** hébergée sur
-[myeline.io](https://myeline.io) (Free / Pro / Enterprise, rien à
-installer) et les **deux éditions on-prem** livrées clé en main aux
-organisations — **Souverain** (air-gap) et **Souverain-hybride**
-(BYOK).
+[myeline.io](https://myeline.io) (Free / Pro, rien à installer) et
+l'offre **On-premise / Souverain** livrée clé en main aux
+organisations — une installation **sur-mesure, sur devis** (air-gap ou
+BYOK).
 
 !!! tip "Vous utilisez la version hébergée (myeline.io) ?"
     Cette doc est surtout orientée on-prem. Pour le SaaS, commencez
-    par l'[édition Cloud (Free / Pro / Enterprise)](editions/cloud.md)
+    par l'[édition Cloud (Free / Pro)](editions/cloud.md)
     et le guide [Obtenir une clé API gratuite en 2 minutes](usage/get-api-key.md).
 
 ---
@@ -53,8 +53,8 @@ organisations — **Souverain** (air-gap) et **Souverain-hybride**
     ---
 
     Hébergé sur myeline.io (UE / France), rien à installer. **Free**
-    gratuit avec votre clé API, **Pro** à 19,90 €/mois avec Mistral
-    inclus, **Enterprise** sur devis.
+    gratuit avec votre clé API, **Pro** à 7,90 €/mois avec Mistral
+    inclus (essai 15 jours). Besoin d'on-premise ? Sur devis.
 
     [:octicons-arrow-right-24: En savoir plus](editions/cloud.md)
 
@@ -91,7 +91,7 @@ organisations — **Souverain** (air-gap) et **Souverain-hybride**
 - :material-cog: **[Opérations day-2](operations/index.md)** : sauvegarde,
   upgrade, supervision, renouvellement de licence.
 - :material-account-cog: **[Administration](admin/index.md)** : gérer
-  organisations, OIDC SSO, quotas, audit log.
+  organisations, quotas, audit log.
 - :material-magnify: **[Recherche RAG côté utilisateur](usage/rag-search.md)** :
   comment poser des questions, raffiner les résultats, conversations.
 - :material-shield-check: **[Conformité RGPD](compliance/gdpr.md)** :

@@ -6,10 +6,10 @@ on-prem** déployées sur votre propre infrastructure. Le reste de cette
 page compare les deux éditions on-prem.
 
 !!! info "Vous cherchez la version hébergée ?"
-    L'[édition Cloud (SaaS)](cloud.md) propose des formules **Free /
-    Pro / Enterprise** sur myeline.io, sans installation. Free est
-    gratuit (avec votre propre clé API), Pro inclut Mistral à
-    19,90 €/mois. Voir [Édition Cloud](cloud.md).
+    L'[édition Cloud (SaaS)](cloud.md) propose les formules **Free /
+    Pro** sur myeline.io, sans installation. Free est gratuit (avec
+    votre propre clé API), Pro inclut Mistral à **7,90 €/mois** (essai
+    15 jours, facturation mensuelle). Voir [Édition Cloud](cloud.md).
 
 !!! tip "Vous voulez juste l'auto-héberger gratuitement ?"
     L'[édition **Community / Self-Host**](community.md) est la version
@@ -32,12 +32,11 @@ et l'infrastructure dont vous disposez.
 | **Synthèse IA**                | Ollama local uniquement | Au choix par org : Ollama OU Mistral / Claude / OpenAI / Gemini |
 | **Embedding**                  | Ollama local       | Ollama local               |
 | **Connecteurs cloud**          | S3 + WebDAV uniquement (vers infra interne) | Tous (avec **vos** OAuth apps — voir BYOC) |
-| **Connexion sociale (Google/MS/Apple login)** | ❌ | ❌ (utiliser OIDC entreprise à la place) |
-| **OIDC SSO entreprise**        | Inclus             | Inclus                     |
+| **Connexion sociale (Google / Microsoft)** | ❌ | ❌ |
 | **Stripe (abonnements)**       | ❌                 | ❌                          |
 | **Multi-tenant**               | Mono-tenant par défaut | Mono-tenant par défaut |
 | **Mises à jour**               | Manuelles (`podman pull`) | Manuelles (`podman pull`) |
-| **Tarif**                      | Sur devis (licence annuelle) | Sur devis (licence annuelle) |
+| **Tarif**                      | Sur devis — nous contacter | Sur devis — nous contacter |
 
 ## Quand choisir laquelle ?
 
@@ -83,10 +82,11 @@ Voir le walkthrough complet :
 
 Si vous n'avez pas de contrainte de self-hosting, l'[édition Cloud
 (SaaS)](cloud.md) est le chemin le plus rapide : compte gratuit,
-connecteurs cloud, recherche RAG, sans serveur à gérer. L'offre
-Enterprise du Cloud recoupe les besoins on-prem (isolation, OIDC SSO,
-audit) — nous orientons vers la bonne édition selon vos exigences de
-souveraineté.
+connecteurs cloud, recherche RAG, sans serveur à gérer (**Free** ou
+**Pro à 7,90 €/mois**). Si la souveraineté ou l'air-gap sont des
+exigences, l'offre **On-premise / Souverain** est une installation
+**sur-mesure, sur devis** — parlons-en :
+[hello@myeline.io](mailto:hello@myeline.io).
 
 ## Migration entre éditions
 

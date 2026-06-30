@@ -30,6 +30,31 @@ On quote, depending on number of users and scope. Contact
 Yes — 30-day evaluation licence, request via the same channel.
 Covers all hybrid-tier features.
 
+## Pricing (hosted offering)
+
+### How much does the hosted offering on myeline.io cost?
+
+- **Free**: **free**, no time limit — you bring your **own AI key**
+  (BYOK, Mistral / OpenAI / Claude / Gemini).
+- **Pro**: **€7.90/mo**, **monthly billing**, with a **15-day free
+  trial**. Mistral included (no key to manage) and every limit lifted.
+- **Teams / organisations**: billed **per seat**, i.e. **€7.90/member**.
+- **On-premise / Sovereign**: **bespoke, quote-based** installation —
+  [contact us](mailto:hello@myeline.io).
+
+Details: [Cloud edition](editions/cloud.md).
+
+### Is the Pro trial really free?
+
+Yes: **15 days**, no charge until day 15, cancel anytime (card required
+to start the trial). When the trial ends you move to monthly Pro at
+€7.90/mo, or back to Free.
+
+### Is there an annual plan?
+
+No. **Pro is monthly only** (€7.90/mo). For an on-premise need, pricing
+is **on quote** — let's talk: [hello@myeline.io](mailto:hello@myeline.io).
+
 ## Data
 
 ### Does my data leave my network?
@@ -104,7 +129,7 @@ switch to BYOK in sovereign-hybrid.
 ### Does multi-tenant work on-prem?
 
 Yes. One Myeline instance can host **multiple organisations**, each
-with its own ChromaDB collection, users, OIDC, AI provider (in
+with its own ChromaDB collection, users and AI provider (in
 sovereign-hybrid). Organisations are strictly isolated.
 
 ## Operations
@@ -123,11 +148,6 @@ See [Upgrade](operations/upgrade.md).
 Automatic daily cron at 02:30 (DB + ChromaDB + uploads). Off-host
 recommended via rclone / MinIO / borg. See
 [Backup and restore](operations/backup-restore.md).
-
-### Can I integrate Myeline with my enterprise SSO?
-
-Yes — OIDC (Azure AD, Okta, Keycloak, Authentik, any standard IdP).
-See [Enterprise SSO](admin/oidc-sso.md).
 
 ### Is there a public API?
 

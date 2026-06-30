@@ -10,44 +10,44 @@ L'embedding passe par l'**API d'embedding Mistral AI** (hébergée en
 UE / France, pas d'entraînement sur les données API) : avec la **clé
 plateforme incluse** en Pro, avec **votre propre clé** en Free. Le LLM
 EU inclus pour la synthèse est **Mistral**. *(L'embedding local
-Ollama + bge-m3 ne concerne que les éditions on-prem souveraines.)*
+Ollama + bge-m3 ne concerne que l'offre on-premise souveraine.)*
 
-!!! info "Cloud vs on-prem"
-    Cette page couvre l'offre **hébergée** (Free / Pro / Enterprise).
-    Si vous avez besoin de tout faire tourner sur **votre propre
-    infrastructure** (air-gap ou BYOK on-prem), voir
-    [les éditions on-prem](index.md).
+!!! info "Hébergé ou on-premise ?"
+    Cette page couvre l'offre **hébergée** (Free / Pro). Si vous avez
+    besoin de tout faire tourner sur **votre propre infrastructure**
+    (air-gap, SecNumCloud, HDS), l'offre **On-premise / Souverain**
+    est une installation **sur-mesure, sur devis** — voir
+    [On-premise / Souverain](sovereign.md) ou écrivez-nous à
+    [hello@myeline.io](mailto:hello@myeline.io).
 
-## Free, Pro ou Enterprise ?
+## Free ou Pro ?
 
-Trois formules. **Free** est réellement utilisable au quotidien avec
-**votre propre clé API gratuite** ; **Pro** apporte surtout le confort
-de **Mistral inclus — aucune clé à gérer** et la levée de toutes les
-limites ; **Enterprise** est la version isolée pour les organisations.
+Deux formules hébergées. **Free** est réellement utilisable au
+quotidien avec **votre propre clé API gratuite** ; **Pro** apporte
+surtout le confort de **Mistral inclus — aucune clé à gérer**, la
+levée de toutes les limites et le travail en équipe.
 
-| Critère                          | Free (gratuit)                         | Pro — 19,90 €/mois                      | Enterprise                         |
-|----------------------------------|----------------------------------------|-----------------------------------------|------------------------------------|
-| **Hébergement**                  | Cloud Myeline (UE / France)            | Cloud Myeline (UE / France)             | Stack dédiée et isolée             |
-| **Synthèse IA**                  | **BYOK requis** (votre clé Mistral / OpenAI / Claude / Gemini) | **Mistral inclus** (BYOK possible pour surcharger) | Mistral inclus + BYOK              |
-| **Embedding (indexation)**       | **Votre clé** (Mistral ou OpenAI — Claude/Gemini ne peuvent pas indexer) | **Mistral inclus** | Mistral inclus                     |
-| **Recherche augmentée** (HyDE, multi-requêtes, reranking) | ❌            | ✅                                      | ✅                                 |
-| **Connecteurs cloud**            | Tous (Google Drive, OneDrive, Dropbox, kDrive…) | Tous                          | Tous                               |
-| **Bibliothèque personnelle**     | Jusqu'à **500 documents**              | **Illimité**                            | Illimité                           |
-| **Sources RSS / web custom**     | **50 sources**, **100 articles/source** | **Illimité**                           | Illimité                           |
-| **Digest**                       | Mensuel uniquement                     | **Toutes fréquences**                   | Toutes fréquences                  |
-| **Chat multi-tours**             | ❌ (recherche RAG simple)              | ✅                                      | ✅                                 |
-| **Alertes de veille**            | ❌                                     | ✅                                      | ✅                                 |
-| **Sync cloud**                   | Toutes les **24 h** (fixe)            | Configurable, **jusqu'à toutes les heures** | Sur mesure (jusqu'à 15 min)    |
-| **Équipe / organisation**        | ❌                                     | **Par siège — 19,90 €/siège, jusqu'à 10 membres** | Membres illimités        |
-| **OIDC SSO**                     | ❌                                     | ❌                                      | ✅                                 |
-| **Journal d'audit**              | ❌                                     | ❌                                      | ✅                                 |
-| **SLA**                          | Best-effort                            | Best-effort                             | SLA sur mesure                     |
-| **Tarif**                        | 0 € (vous payez votre provider IA)     | 19,90 €/mois             | Sur devis                          |
+| Critère                          | Free (gratuit)                         | Pro — 7,90 €/mois                        |
+|----------------------------------|----------------------------------------|------------------------------------------|
+| **Hébergement**                  | Cloud Myeline (UE / France)            | Cloud Myeline (UE / France)              |
+| **Synthèse IA**                  | **BYOK requis** (votre clé Mistral / OpenAI / Claude / Gemini) | **Mistral inclus** (BYOK possible pour surcharger) |
+| **Embedding (indexation)**       | **Votre clé** (Mistral ou OpenAI — Claude/Gemini ne peuvent pas indexer) | **Mistral inclus** |
+| **Recherche augmentée** (HyDE, multi-requêtes, reranking) | ❌            | ✅                                       |
+| **Connecteurs cloud**            | Tous (Google Drive, OneDrive, Dropbox, kDrive…) | Tous                            |
+| **Bibliothèque personnelle**     | Jusqu'à **500 documents**              | **Illimité**                             |
+| **Sources RSS / web custom**     | **50 sources**, **100 articles/source** | **Illimité**                            |
+| **Digest**                       | Mensuel uniquement                     | **Toutes fréquences**                    |
+| **Chat multi-tours**             | ❌ (recherche RAG simple)              | ✅                                       |
+| **Alertes de veille**            | ❌                                     | ✅                                       |
+| **Sync cloud**                   | Toutes les **24 h** (fixe)            | Configurable, **jusqu'à toutes les heures** |
+| **Équipe / organisation**        | ❌                                     | **Par siège — 7,90 €/membre**            |
+| **Tarif**                        | 0 € (vous payez votre provider IA)     | **7,90 €/mois** (essai 15 jours)         |
 
 !!! tip "🎁 Essai Pro gratuit — 15 jours"
     L'offre **Pro** inclut **15 jours d'essai gratuit** (carte requise,
-    aucun débit avant J+15, annulable à tout moment). Et l'édition
-    **Free** reste gratuite indéfiniment, avec votre propre clé API.
+    aucun débit avant J+15, annulable à tout moment). La facturation est
+    **mensuelle**. L'édition **Free** reste gratuite indéfiniment, avec
+    votre propre clé API.
 
 ## Free — gratuit, avec votre clé (BYOK)
 
@@ -89,14 +89,14 @@ Inclus dans Free :
 - **Sync cloud toutes les 24 h** (fréquence fixe)
 - **Recherche RAG** : indexation **et** synthèse exécutées sur votre clé
 
-## Pro — 19,90 €/mois, Mistral inclus
+## Pro — 7,90 €/mois, Mistral inclus
 
-L'édition Pro (**19,90 €/mois**, ou **−20 % en facturation annuelle**)
-inclut **Mistral AI** (France, hébergé UE, pas d'entraînement sur les
-données API) pour **l'indexation (embeddings) ET la synthèse** : aucune
-clé à gérer, tout fonctionne dès l'inscription. Vous pouvez toujours
-**apporter votre propre clé** (BYOK) pour surcharger le provider de
-synthèse si vous préférez Claude, GPT ou Gemini.
+L'édition Pro (**7,90 €/mois**, facturation **mensuelle**, **15 jours
+d'essai gratuit**) inclut **Mistral AI** (France, hébergé UE, pas
+d'entraînement sur les données API) pour **l'indexation (embeddings) ET
+la synthèse** : aucune clé à gérer, tout fonctionne dès l'inscription.
+Vous pouvez toujours **apporter votre propre clé** (BYOK) pour surcharger
+le provider de synthèse si vous préférez Claude, GPT ou Gemini.
 
 Pro reprend tout Free **sans aucune limite**, et ajoute la **recherche
 augmentée** (HyDE, multi-requêtes, reranking, contextual retrieval),
@@ -106,24 +106,23 @@ désactivée en Free :
 - **Toutes les fréquences de digest** (quotidien, hebdo, mensuel…)
 - **Chat multi-tours** et **alertes de veille**
 - **Sync cloud configurable, jusqu'à toutes les heures**
-- **Organisation / équipe** facturée **par siège** : **19,90 €/siège,
-  jusqu'à 10 membres**. Au-delà de 10 membres, passez à Enterprise.
+- **Organisation / équipe** facturée **par siège** : **7,90 €/membre**.
+  Chaque membre dispose des fonctionnalités Pro complètes.
 
-## Enterprise — sur devis
+## On-premise / Souverain — sur devis
 
-L'édition Enterprise est destinée aux organisations qui veulent une
-**stack dédiée et isolée** sur le cloud Myeline, avec :
+Vous ne pouvez pas envoyer vos données vers un SaaS — réglementation
+HDS stricte, air-gap, SecNumCloud, exigence de souveraineté ? L'offre
+**On-premise / Souverain** déploie Myeline **sur votre propre
+infrastructure**.
 
-- **OIDC SSO** (Azure AD, Okta, Keycloak…)
-- **Membres illimités**
-- **SLA sur mesure**
-- **Journal d'audit** complet
+C'est une **installation sur-mesure, sur devis** : périmètre, modèles
+IA (Mistral, Ollama local, BYOK), connecteurs et intégration sont
+calibrés avec vous. Il n'y a **pas de souscription en self-service** —
+on en parle ensemble.
 
-!!! tip "Enterprise et on-prem se recoupent"
-    Les besoins Enterprise (isolation, SSO, audit, membres illimités)
-    recoupent les [éditions on-prem Souverain / Souverain-hybride](index.md).
-    Si la souveraineté ou l'air-gap sont des exigences, parlons-en :
-    [hello@myeline.io](mailto:hello@myeline.io).
+[:octicons-arrow-right-24: En savoir plus sur l'On-premise / Souverain](sovereign.md){ .md-button }
+[:octicons-mail-24: Nous contacter](mailto:hello@myeline.io){ .md-button .md-button--primary }
 
 ## Comment s'inscrire
 
@@ -134,13 +133,5 @@ L'édition Enterprise est destinée aux organisations qui veulent une
 3. **Collez votre clé** dans *Paramètres → Fournisseur IA*.
 4. **Connectez vos drives** et ajoutez vos sources RSS / web.
 5. Pour passer à **Pro**, faites-le depuis votre **tableau de bord**
-   (bouton *Passer à Pro*) — Mistral est alors inclus et toutes les
-   limites sont levées.
-
-## Besoin de self-hosting ?
-
-Si vous ne pouvez pas envoyer vos données vers un SaaS — réglementation
-HDS stricte, air-gap, SecNumCloud — les
-[éditions on-prem](index.md) déploient Myeline **sur votre propre
-infrastructure**, en mode Souverain (air-gap) ou Souverain-hybride
-(BYOK).
+   (bouton *Passer à Pro*, essai 15 jours) — Mistral est alors inclus et
+   toutes les limites sont levées.
