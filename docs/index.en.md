@@ -59,6 +59,16 @@ organisations — **Sovereign** (air-gap) and **Sovereign-hybrid**
 
     [:octicons-arrow-right-24: Learn more](editions/cloud.md)
 
+-   :fontawesome-brands-github:{ .lg .middle } **Community / Self-Host**
+
+    ---
+
+    **Open-source (AGPL-3.0)**, **single-user** edition to self-host
+    for free. Multi-LLM BYOK + **fully local LLM via Ollama**, no
+    licence and no organisation. Code on GitHub.
+
+    [:octicons-arrow-right-24: Learn more](editions/community.md)
+
 </div>
 
 ---

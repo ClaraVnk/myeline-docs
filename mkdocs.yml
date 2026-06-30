@@ -116,6 +116,7 @@ plugins:
           nav_translations:
             "Accueil": "Home"
             "Choisir son édition": "Choose your edition"
+            "Community / Self-Host (open source)": "Community / Self-Host (open source)"
             "Cloud (SaaS)": "Cloud (SaaS)"
             "Souverain (air-gap)": "Sovereign (air-gap)"
             "Souverain-hybride (BYOK)": "Sovereign-hybrid (BYOK)"
@@ -155,6 +156,7 @@ nav:
   - Accueil: index.md
   - Choisir son édition:
       - editions/index.md
+      - Community / Self-Host (open source): editions/community.md
       - Cloud (SaaS): editions/cloud.md
       - Souverain (air-gap): editions/sovereign.md
       - Souverain-hybride (BYOK): editions/sovereign-hybrid.md

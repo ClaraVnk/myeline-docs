@@ -11,6 +11,13 @@ this page compares the two on-prem editions.
     (with your own API key), Pro includes Mistral at €19.90/mo. See
     [Cloud edition](cloud.md).
 
+!!! tip "Just want to self-host it for free?"
+    The [**Community / Self-Host** edition](community.md) is the
+    **open-source (AGPL-3.0)**, **single-user** version to install on
+    your own server — multi-LLM BYOK **+ fully local LLM via Ollama**,
+    no licence and no organisation. The code is on
+    [GitHub](https://github.com/ClaraVnk/myeline).
+
 The two **on-prem editions** below are each calibrated for a specific
 need. Pick yours based on **three criteria**: the regulation that
 applies to your data, your need for autonomy, and the infrastructure

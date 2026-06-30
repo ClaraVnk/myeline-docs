@@ -11,6 +11,13 @@ page compare les deux éditions on-prem.
     gratuit (avec votre propre clé API), Pro inclut Mistral à
     19,90 €/mois. Voir [Édition Cloud](cloud.md).
 
+!!! tip "Vous voulez juste l'auto-héberger gratuitement ?"
+    L'[édition **Community / Self-Host**](community.md) est la version
+    **open source (AGPL-3.0)**, **mono-utilisateur**, à installer sur
+    votre propre serveur — BYOK multi-LLM **+ LLM 100 % local via
+    Ollama**, sans licence ni organisation. Le code est sur
+    [GitHub](https://github.com/ClaraVnk/myeline).
+
 Les deux **éditions on-prem** ci-dessous sont chacune calibrées pour
 un besoin spécifique. Choisissez selon **trois critères** : la
 réglementation qui s'applique à vos données, votre besoin d'autonomie,
